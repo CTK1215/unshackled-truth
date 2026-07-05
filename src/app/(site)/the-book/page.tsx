@@ -1,0 +1,111 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Container } from "@/components/Container";
+import { ButtonLink } from "@/components/Button";
+import { BuyEbookButton } from "@/components/BuyEbookButton";
+import { PurchaseBanner } from "@/components/PurchaseBanner";
+import { siteConfig } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "The Book",
+  description: `${siteConfig.book.title} — ${siteConfig.book.subtitle}. ${siteConfig.tagline}`,
+};
+
+const highlights = [
+  {
+    title: "Written from the inside",
+    body: "Not a lecture about people in prison — a story told by someone who lived it, in his own voice.",
+  },
+  {
+    title: "Hope without the sugar-coating",
+    body: "The lowest moments are on the page, unedited. So is the way out. Both are true.",
+  },
+  {
+    title: "For the ones still fighting",
+    body: "For inmates, families, people in recovery, and anyone who loves someone trying to change.",
+  },
+];
+
+export default async function BookPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ purchase?: string; session_id?: string }>;
+}) {
+  const { book } = siteConfig;
+  const { purchase, session_id } = await searchParams;
+  return (
+    <>
+      <section className="bg-vignette py-16 sm:py-24">
+        <Container>
+          <PurchaseBanner status={purchase} sessionId={session_id} />
+          <div className="grid items-start gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:gap-16">
+            {/* Cover */}
+            <div className="relative mx-auto w-full max-w-sm md:sticky md:top-24">
+              <div className="absolute -inset-5 -z-10 rounded-[2rem] bg-accent/10 blur-3xl" />
+              <Image
+                src={book.coverImage}
+                alt={`Cover of ${book.title}`}
+                width={600}
+                height={900}
+                priority
+                className="w-full rounded-lg border border-border shadow-2xl"
+              />
+            </div>
+
+            {/* Details */}
+            <div>
+              <p className="eyebrow mb-3">The Book</p>
+              <h1 className="text-balance font-display text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">
+                {book.title}
+              </h1>
+              <p className="mt-3 text-xl italic text-fg-muted">
+                {book.subtitle}
+              </p>
+
+              <div className="mt-7 space-y-4 text-lg leading-relaxed text-fg-muted">
+                {book.description.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
+              </div>
+
+              {/* Purchase options */}
+              <div className="mt-9 rounded-2xl border border-border bg-bg-elev p-6">
+                <p className="text-sm font-semibold uppercase tracking-wider text-fg-subtle">
+                  Get your copy
+                </p>
+                <div className="mt-4 flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <ButtonLink href={book.amazonUrl} size="lg" external>
+                    Buy on Amazon
+                  </ButtonLink>
+                  <BuyEbookButton priceUsd={book.ebookPriceUsd} />
+                </div>
+                <p className="mt-4 text-sm text-fg-subtle">
+                  Print &amp; Kindle editions are on Amazon. The eBook (PDF) is
+                  available to buy directly here — instant download after
+                  checkout.
+                </p>
+              </div>
+
+              {/* Highlights */}
+              <div className="mt-10 grid gap-5 sm:grid-cols-3">
+                {highlights.map((h) => (
+                  <div
+                    key={h.title}
+                    className="rounded-xl border border-border bg-bg-elev p-5"
+                  >
+                    <h3 className="font-display text-lg font-semibold text-accent">
+                      {h.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-fg-muted">
+                      {h.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+}

@@ -1,0 +1,30 @@
+<svg width="600" height="900" viewBox="0 0 600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Book cover placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#17171b"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="70%" r="55%">
+      <stop offset="0" stop-color="#e0a94b" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#e0a94b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="900" fill="url(#bg)"/>
+  <rect width="600" height="900" fill="url(#glow)"/>
+  <rect x="1" y="1" width="598" height="898" fill="none" stroke="#e0a94b" stroke-opacity="0.35" stroke-width="2"/>
+
+  <text x="300" y="150" text-anchor="middle" fill="#f4f1ea" font-family="Georgia, serif" font-size="58" font-weight="700">The Cracks</text>
+  <text x="300" y="212" text-anchor="middle" fill="#f4f1ea" font-family="Georgia, serif" font-size="58" font-weight="700">Beneath</text>
+  <text x="300" y="274" text-anchor="middle" fill="#e0a94b" font-family="Georgia, serif" font-size="58" font-weight="700" font-style="italic">the Surface</text>
+
+  <!-- cross above the glowing crack -->
+  <g transform="translate(300 430)" fill="#141417" stroke="#e0a94b" stroke-width="3" stroke-opacity="0.5">
+    <rect x="-14" y="-70" width="28" height="150" rx="3"/>
+    <rect x="-48" y="-34" width="96" height="26" rx="3"/>
+  </g>
+
+  <!-- glowing crack -->
+  <path d="M300 500 L285 560 L312 615 L288 680 L316 745 L296 820" fill="none" stroke="#e0a94b" stroke-width="6" stroke-linecap="round" stroke-opacity="0.85"/>
+
+  <text x="300" y="862" text-anchor="middle" fill="#c9c5bd" font-family="Arial, sans-serif" font-size="24" letter-spacing="5" font-weight="700">CHRISTOPHER KELLY</text>
+</svg>

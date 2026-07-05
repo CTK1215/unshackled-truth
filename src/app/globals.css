@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/*  Unshackled Truth — bold & dramatic dark theme                      */
+/* ------------------------------------------------------------------ */
+
+:root {
+  /* Core surfaces */
+  --bg: #0a0a0b; /* near-black */
+  --bg-elev: #141417; /* raised panels / cards */
+  --bg-elev-2: #1c1c21;
+  --border: #2a2a30;
+
+  /* Text */
+  --fg: #f4f1ea; /* warm off-white */
+  --fg-muted: #a5a2a0;
+  --fg-subtle: #74716f;
+
+  /* Accents — gold = light breaking through */
+  --accent: #e0a94b; /* amber gold */
+  --accent-hover: #f0bd63;
+  --accent-contrast: #0a0a0b;
+  --ember: #c0492f; /* deep ember red for emphasis */
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-bg-elev-2: var(--bg-elev-2);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-ember: var(--ember);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+/* Display headings default to the dramatic serif */
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+/* Utility: subtle top-lit grain / vignette background for hero sections */
+.bg-vignette {
+  background:
+    radial-gradient(
+      120% 90% at 50% -10%,
+      rgba(224, 169, 75, 0.14) 0%,
+      rgba(224, 169, 75, 0) 55%
+    ),
+    var(--bg);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Thin uppercase eyebrow label */
+.eyebrow {
+  font-family: var(--font-sans), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Long-form article typography (blog posts, letters, stories) */
+.prose-ut {
+  color: var(--fg);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+.prose-ut p {
+  margin-bottom: 1.4em;
+  color: #d8d4cd;
+}
+.prose-ut h2 {
+  font-size: 1.9rem;
+  margin: 1.8em 0 0.6em;
+  line-height: 1.2;
+}
+.prose-ut h3 {
+  font-size: 1.4rem;
+  margin: 1.5em 0 0.5em;
+}
+.prose-ut a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-ut blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  margin: 1.6em 0;
+  font-family: var(--font-display), serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: var(--fg);
+}
+.prose-ut ul,
+.prose-ut ol {
+  margin: 0 0 1.4em 1.2em;
+  color: #d8d4cd;
+}
+.prose-ut li {
+  margin-bottom: 0.5em;
+}
+.prose-ut ul {
+  list-style: disc;
+}
+.prose-ut ol {
+  list-style: decimal;
+}
+
+/* Fade-up entrance for sections */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.7s ease both;
+}

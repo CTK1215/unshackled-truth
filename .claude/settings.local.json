@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(git --version)",
+      "Bash(npx --yes create-next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --turbopack)",
+      "Bash(npx --yes create-next-app@latest _scaffold --ts --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --turbopack --disable-git)",
+      "Bash(npx --yes create-next-app@latest site --ts --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --turbopack --disable-git)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(rm -rf .next)",
+      "Bash(node -e \"const t=require\\('@portabletext/types'\\); console.log\\('types pkg present'\\)\")",
+      "WebFetch(domain:www.amazon.com)",
+      "Bash(npx --no-install vercel --version)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "mcp__f4dbdf00-a48d-4206-a056-22e26bbe54c7__web_fetch_exa",
+      "mcp__f4dbdf00-a48d-4206-a056-22e26bbe54c7__web_search_exa",
+      "Read(//c/Users/Christopher/**)",
+      "Read(//c/Users/CHRIST~1/AppData/Local/Temp/claude/**)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Unshackled Truth site: pages, CMS, Stripe eBook delivery, contact form\")",
+      "Bash(git check-ignore *)"
+    ]
+  }
+}
