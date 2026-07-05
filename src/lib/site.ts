@@ -45,7 +45,7 @@ export const siteConfig = {
     ebookFileName: "the-cracks-beneath-the-surface.pdf",
     // TODO / confirm: paste your real back-cover description (1–3 paragraphs).
     description: [
-      "We all learn to smooth things over on top — to look fine, to look faithful, to look fine. But the cracks beneath the surface don't disappear just because we've painted over them.",
+      "We all learn to smooth things over on top — to look fine, to look faithful, to look like we've got it all together. But the cracks beneath the surface don't disappear just because we've painted over them.",
       "This is an honest, unflinching look at the struggles we hide, and how facing them in the light of God is the only way they ever truly heal.",
     ],
   },
