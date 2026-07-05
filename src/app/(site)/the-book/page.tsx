@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { CoverImage } from "@/components/CoverImage";
 import { Container } from "@/components/Container";
 import { ButtonLink } from "@/components/Button";
 import { BuyEbookButton } from "@/components/BuyEbookButton";
@@ -42,11 +42,9 @@ export default async function BookPage({
             {/* Cover */}
             <div className="relative mx-auto w-full max-w-sm md:sticky md:top-24">
               <div className="absolute -inset-5 -z-10 rounded-[2rem] bg-accent/10 blur-3xl" />
-              <Image
+              <CoverImage
                 src={book.coverImage}
                 alt={`Cover of ${book.title}`}
-                width={600}
-                height={900}
                 priority
                 className="w-full rounded-lg border border-border shadow-2xl"
               />

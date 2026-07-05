@@ -5,22 +5,22 @@
 /* ------------------------------------------------------------------ */
 
 :root {
-  /* Core surfaces */
-  --bg: #0a0a0b; /* near-black */
-  --bg-elev: #141417; /* raised panels / cards */
-  --bg-elev-2: #1c1c21;
-  --border: #2a2a30;
+  /* Core surfaces — cool charcoal/navy to match the logo */
+  --bg: #0a0d12; /* cool near-black */
+  --bg-elev: #12161d; /* raised panels / cards */
+  --bg-elev-2: #1a1f28;
+  --border: #29303c;
 
-  /* Text */
-  --fg: #f4f1ea; /* warm off-white */
-  --fg-muted: #a5a2a0;
-  --fg-subtle: #74716f;
+  /* Text — cool silver/white */
+  --fg: #eef2f8; /* silver-white */
+  --fg-muted: #a2acbb;
+  --fg-subtle: #6d7686;
 
-  /* Accents — gold = light breaking through */
-  --accent: #e0a94b; /* amber gold */
-  --accent-hover: #f0bd63;
-  --accent-contrast: #0a0a0b;
-  --ember: #c0492f; /* deep ember red for emphasis */
+  /* Accents — blue = the light breaking through (Unshackled Truth Media blue) */
+  --accent: #2b82db; /* logo blue */
+  --accent-hover: #4f9dea;
+  --accent-contrast: #ffffff;
+  --ember: #c0492f; /* red, reserved for error states */
 }
 
 @theme inline {
@@ -75,8 +75,8 @@ h3,
   background:
     radial-gradient(
       120% 90% at 50% -10%,
-      rgba(224, 169, 75, 0.14) 0%,
-      rgba(224, 169, 75, 0) 55%
+      rgba(43, 130, 219, 0.18) 0%,
+      rgba(43, 130, 219, 0) 55%
     ),
     var(--bg);
 }

@@ -20,7 +20,7 @@ export const siteConfig = {
    * Your BOOK is "The Cracks Beneath the Surface" (set below). If you'd rather
    * the whole site be named after the book or yourself, change this one line.
    */
-  brand: "Unshackled Truth",
+  brand: "Unshackled Truth Media",
 
   /** One-line description used for SEO and social previews. */
   tagline:
@@ -34,9 +34,9 @@ export const siteConfig = {
     title: "The Cracks Beneath the Surface",
     // TODO / confirm: replace with your exact subtitle from the cover.
     subtitle: "Unmasking and Confronting the Struggles We Hide",
-    // Placeholder for now. To use your real cover: save the image as
-    // public/book-cover.jpg and change this line to "/book-cover.jpg".
-    coverImage: "/book-cover-placeholder.svg",
+    // Save your real cover as public/book-cover.jpg. Until that file exists,
+    // the site automatically shows the styled placeholder instead.
+    coverImage: "/book-cover.jpg",
     // Clean canonical Amazon product link (ASIN B0G1HZQ5JL):
     amazonUrl: "https://www.amazon.com/dp/B0G1HZQ5JL",
     // Price for the direct eBook/PDF sale on this site (USD) — confirm this:

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { ButtonLink } from "@/components/Button";
+import { Figure } from "@/components/Figure";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -58,13 +59,55 @@ export default function AboutPage() {
 
       <section className="py-12 sm:py-16">
         <Container size="narrow">
+          {/* Photo at 16, floated so the testimony wraps around it */}
+          <div className="float-right mb-4 ml-6 w-36 sm:w-52">
+            <Figure
+              src="/chris-at-16.jpg"
+              alt="Christopher Kelly at sixteen years old"
+              caption="Me at 16 — long before any of this."
+              hint="Add /chris-at-16.jpg"
+              ratio="aspect-[4/5]"
+            />
+          </div>
+
           <div className="prose-ut">
             {testimony.map((p) => (
               <p key={p}>{p}</p>
             ))}
           </div>
+        </Container>
+      </section>
 
-          <div className="mt-12 flex flex-wrap gap-4">
+      {/* First day out — video */}
+      <section className="py-8 sm:py-12">
+        <Container size="narrow">
+          <p className="eyebrow mb-3">The day everything changed</p>
+          <h2 className="text-balance font-display text-3xl font-semibold leading-tight sm:text-4xl">
+            My first day out
+          </h2>
+          <p className="mt-4 max-w-xl text-pretty leading-relaxed text-fg-muted">
+            The gate opens and the whole world is loud and bright and yours
+            again. This is that moment — the first day of the rest of a life I
+            almost didn&rsquo;t get to live.
+          </p>
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-2xl">
+            <video
+              controls
+              preload="metadata"
+              poster="/media/first-day-out-poster.jpg"
+              className="aspect-video w-full bg-black"
+            >
+              <source src="/media/first-day-out.mp4" type="video/mp4" />
+              Your browser doesn&rsquo;t support embedded video. You can
+              <a href="/media/first-day-out.mp4"> download it here</a>.
+            </video>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-12 sm:py-16">
+        <Container size="narrow">
+          <div className="flex flex-wrap gap-4">
             <ButtonLink href="/the-book" size="lg">
               Read the Book
             </ButtonLink>

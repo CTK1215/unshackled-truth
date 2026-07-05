@@ -24,7 +24,15 @@
       "Bash(git check-ignore *)",
       "Bash(gh repo *)",
       "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Fix placeholder book description copy\")",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(ffmpeg -version)",
+      "Bash(grep -iE '\\\\.\\(png|jpg|jpeg|webp\\)$')",
+      "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height,duration -show_entries format=duration -of default=noprint_wrappers=1 \"C:/Users/Christopher/OneDrive/Pictures/Camera Roll/IMG_0022.MOV\")",
+      "Read(//c/Users/Christopher/OneDrive/Pictures/**)",
+      "Bash(mkdir -p public/media)",
+      "Bash(ffmpeg -y -i \"C:/Users/Christopher/OneDrive/Pictures/Camera Roll/IMG_0022.MOV\" -vf \"scale=-2:720\" -c:v libx264 -profile:v high -preset veryfast -crf 23 -c:a aac -b:a 128k -movflags +faststart public/media/first-day-out.mp4)",
+      "Bash(ffmpeg -y -ss 2 -i \"C:/Users/Christopher/OneDrive/Pictures/Camera Roll/IMG_0022.MOV\" -frames:v 1 -vf \"scale=-2:720\" -q:v 3 public/media/first-day-out-poster.jpg)",
+      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Rebrand to logo blue; add first-day-out video; logo/cover/photo with graceful fallbacks\")"
     ]
   }
 }

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { siteConfig } from "@/lib/site";
 import { ButtonLink } from "./Button";
+import { useImageExists } from "./useImageExists";
 
 const NAV = [
   { href: "/the-book", label: "The Book" },
@@ -18,6 +19,7 @@ const NAV = [
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const logoStatus = useImageExists("/logo.png");
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -27,27 +29,36 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-2.5">
-          <span
-            aria-hidden
-            className="flex h-8 w-8 items-center justify-center rounded-md border border-accent/40 text-accent transition-colors group-hover:border-accent"
-          >
-            {/* broken-chain link mark */}
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M8.5 12h-2a3.5 3.5 0 0 1 0-7h2M15.5 12h2a3.5 3.5 0 0 1 0 7h-2"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-              <path
-                d="M9 8.5 15 15.5"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeDasharray="0.1 4"
-              />
-            </svg>
-          </span>
+          {logoStatus === "ok" ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src="/logo.png"
+              alt={siteConfig.brand}
+              className="h-10 w-10 rounded-md object-contain"
+            />
+          ) : (
+            <span
+              aria-hidden
+              className="flex h-9 w-9 items-center justify-center rounded-md border border-accent/40 text-accent transition-colors group-hover:border-accent"
+            >
+              {/* broken-chain link mark (fallback until logo.png is added) */}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M8.5 12h-2a3.5 3.5 0 0 1 0-7h2M15.5 12h2a3.5 3.5 0 0 1 0 7h-2"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M9 8.5 15 15.5"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeDasharray="0.1 4"
+                />
+              </svg>
+            </span>
+          )}
           <span className="font-display text-lg font-semibold tracking-tight">
             {siteConfig.brand}
           </span>

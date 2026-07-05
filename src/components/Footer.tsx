@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { Container } from "./Container";
+import { BrandLogo } from "./BrandLogo";
 
 const socials = [
   { key: "instagram", label: "Instagram" },
@@ -20,6 +21,7 @@ export function Footer() {
       <Container className="py-14">
         <div className="grid gap-10 md:grid-cols-3">
           <div className="max-w-sm">
+            <BrandLogo className="mb-3 h-14 w-14 rounded-md object-contain" />
             <p className="font-display text-xl font-semibold">
               {siteConfig.brand}
             </p>

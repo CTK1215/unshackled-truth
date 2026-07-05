@@ -130,12 +130,27 @@ The easiest host is **Vercel** (made by the Next.js team, free tier):
 
 ---
 
+## Images to drop into `public/`
+
+Save these three files into the `public/` folder with these **exact names**.
+Each one appears automatically on the site as soon as the file exists (the site
+shows a tasteful placeholder until then — nothing looks broken in the meantime):
+
+| Save as | Where it shows |
+|---------|----------------|
+| `public/logo.png` | Header + footer logo |
+| `public/book-cover.jpg` | Book cover on the home and Book pages |
+| `public/chris-at-16.jpg` | Photo on the About page |
+
+The **first-day-out video** is already added (`public/media/first-day-out.mp4`)
+and shows on the About page.
+
 ## Content checklist
 
-- [ ] Fill in `src/lib/site.ts` (name, book, Amazon link, contact)
-- [ ] Add your real book cover to `public/`
+- [ ] Fill in `src/lib/site.ts` (subtitle, description, public contact email/phone)
+- [ ] Add the three images above to `public/`
 - [ ] Update the testimony on the About page (`src/app/(site)/about/page.tsx`)
 - [ ] Connect the CMS and add real blog posts / letters / stories
 - [ ] Turn on Resend so speaking requests reach your inbox
-- [ ] (Optional) Turn on Stripe for direct eBook sales
+- [ ] Turn on Stripe + drop your PDF in `private/` for direct eBook sales
 - [ ] Deploy to Vercel and connect your domain

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { CoverImage } from "@/components/CoverImage";
 import { Container } from "@/components/Container";
 import { ButtonLink } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
@@ -58,11 +58,9 @@ export default async function HomePage() {
           <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
             <div className="relative mx-auto w-full max-w-xs md:max-w-sm">
               <div className="absolute -inset-4 -z-10 rounded-3xl bg-accent/10 blur-2xl" />
-              <Image
+              <CoverImage
                 src={siteConfig.book.coverImage}
                 alt={`Cover of ${siteConfig.book.title}`}
-                width={600}
-                height={900}
                 priority
                 className="w-full rounded-lg border border-border shadow-2xl"
               />
