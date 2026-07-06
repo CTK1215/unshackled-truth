@@ -26,11 +26,8 @@ export const siteConfig = {
   tagline:
     "From prison cells to freedom in Christ — proof that no one is too far gone.",
 
-  /**
-   * Full URL of the live site (used for SEO metadata). Update this if you
-   * later connect a custom domain like unshackledtruthmedia.com.
-   */
-  url: "https://unshackled-truth.vercel.app",
+  /** Full URL of the live site (used for SEO metadata). */
+  url: "https://unshackledtruthmedia.com",
 
   /** ---- The Book ------------------------------------------------------- */
   book: {
