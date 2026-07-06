@@ -27,7 +27,10 @@ const byDateDesc = <T extends { date: string }>(a: T, b: T) =>
 export async function getPosts(): Promise<Post[]> {
   if (isCmsConfigured()) {
     const { fetchPosts } = await import("./sanity/queries");
-    return fetchPosts();
+    const posts = await fetchPosts();
+    // Until the first real post is published, keep showing the samples so the
+    // site never looks empty.
+    if (posts.length > 0) return posts;
   }
   return [...samplePosts].sort(byDateDesc);
 }
@@ -48,7 +51,8 @@ export async function getPost(slug: string): Promise<Post | null> {
 export async function getLetters(): Promise<Letter[]> {
   if (isCmsConfigured()) {
     const { fetchLetters } = await import("./sanity/queries");
-    return fetchLetters();
+    const letters = await fetchLetters();
+    if (letters.length > 0) return letters;
   }
   return [...sampleLetters].sort(byDateDesc);
 }
@@ -63,7 +67,8 @@ export async function getLetter(slug: string): Promise<Letter | null> {
 export async function getStories(): Promise<Story[]> {
   if (isCmsConfigured()) {
     const { fetchStories } = await import("./sanity/queries");
-    return fetchStories();
+    const stories = await fetchStories();
+    if (stories.length > 0) return stories;
   }
   return [...sampleStories].sort(byDateDesc);
 }

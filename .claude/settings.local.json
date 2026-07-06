@@ -35,7 +35,23 @@
       "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Rebrand to logo blue; add first-day-out video; logo/cover/photo with graceful fallbacks\")",
       "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277-@gmail.com\" -c core.safecrlf=false commit -q -m \"Real content: cover, logo, photos, back-cover description, subtitle, \\\\$6.99 eBook, manuscript PDF\")",
       "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -m \"Real content: cover, logo, photos, back-cover description, subtitle, 6.99 eBook, manuscript PDF\")",
-      "Bash(rm -f .git/index.lock)"
+      "Bash(rm -f .git/index.lock)",
+      "Bash(npx sanity *)",
+      "Bash(export NEXT_PUBLIC_SANITY_PROJECT_ID=uu8dd45m)",
+      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Set canonical site URL to Vercel deployment\")",
+      "Bash(curl -s \"https://unshackled-truth.vercel.app/studio\")",
+      "Bash(curl -s \"https://unshackled-truth.vercel.app/api/contact\" -X POST -H \"Content-Type: application/json\" -d '{\"name\":\"t\",\"email\":\"t@t.co\",\"message\":\"hi\"}')",
+      "Bash(curl -s \"https://unshackled-truth.vercel.app/api/checkout\" -X POST)",
+      "Bash(ffmpeg -y -v error -i chris-now.jpg -vf \"transpose=2\" -q:v 3 chris-now-fixed.jpg)",
+      "Bash(curl -s \"https://rdap.org/domain/unshackledtruthmedia.com\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://rdap.org/domain/unshackledtruthmedia.com\")",
+      "Bash(nslookup unshackledtruthmedia.com)",
+      "Bash(curl -sL https://rdap.org/domain/unshackledtruthmedia.com -o __TRACKED_VAR__/rdap.json)",
+      "Bash(curl -sL \"https://rdap.org/domain/unshackledtruthmedia.com\")",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('registrar:', next\\(\\(e.get\\('vcardArray',[None,[]]\\)[1] for e in d.get\\('entities',[]\\) if 'registrar' in e.get\\('roles',[]\\)\\), None\\)\\); print\\('status:', d.get\\('status'\\)\\); print\\('events:', [\\(e['eventAction'], e['eventDate'][:10]\\) for e in d.get\\('events',[]\\)]\\); print\\('nameservers:', [n['ldhName'] for n in d.get\\('nameservers',[]\\)]\\)\")",
+      "Bash(curl -sL -o /dev/null -w \"final URL: %{url_effective}\\\\nstatus: %{http_code}\\\\n\" \"http://unshackledtruthmedia.com\" --max-time 20)",
+      "Bash(curl -sL \"https://unshackledtruthmedia.com\" --max-time 20)",
+      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Home tab, animated nav underline, Voices from the Inside rename, 2 Cor 5:17 verse band, photo rotation fix, CMS empty-state fallback, 60s revalidation\")"
     ]
   }
 }

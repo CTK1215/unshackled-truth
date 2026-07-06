@@ -1,3 +1,6 @@
+// Re-check the CMS for new content at most every 60 seconds.
+export const revalidate = 60;
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
@@ -6,7 +9,7 @@ import { getLetters } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Letters",
+  title: "Voices from the Inside",
   description:
     "Letters from men and women still inside — in their own words.",
 };
@@ -19,7 +22,7 @@ export default async function LettersPage() {
       <Container size="narrow">
         <p className="eyebrow mb-3">Letters</p>
         <h1 className="text-balance font-display text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">
-          Letters from inside
+          Voices from the Inside
         </h1>
         <p className="mt-5 text-pretty text-lg leading-relaxed text-fg-muted">
           Real words from people still behind the wall. Shared with permission,

@@ -148,6 +148,20 @@ h3,
   list-style: decimal;
 }
 
+/* Gentle floating for the verse-band dove */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-float {
+  animation: float 4.5s ease-in-out infinite;
+}
+
 /* Fade-up entrance for sections */
 @keyframes fade-up {
   from {

@@ -1,3 +1,6 @@
+// Re-check the CMS for new content at most every 60 seconds.
+export const revalidate = 60;
+
 import type { Metadata } from "next";
 import { Container } from "@/components/Container";
 import { PostCard } from "@/components/PostCard";

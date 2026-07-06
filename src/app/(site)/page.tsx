@@ -1,3 +1,6 @@
+// Re-check the CMS for new content at most every 60 seconds.
+export const revalidate = 60;
+
 import Link from "next/link";
 import { CoverImage } from "@/components/CoverImage";
 import { Container } from "@/components/Container";
@@ -5,6 +8,7 @@ import { ButtonLink } from "@/components/Button";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PostCard } from "@/components/PostCard";
 import { QuoteCard } from "@/components/QuoteCard";
+import { VerseBand } from "@/components/VerseBand";
 import { siteConfig } from "@/lib/site";
 import { getFeaturedPosts, getLetters, getStories } from "@/lib/content";
 
@@ -97,6 +101,11 @@ export default async function HomePage() {
       </section>
 
       {/* ---------------------------------------------------------------- */}
+      {/* ANCHOR VERSE — 2 Corinthians 5:17                                */}
+      {/* ---------------------------------------------------------------- */}
+      <VerseBand />
+
+      {/* ---------------------------------------------------------------- */}
       {/* VOICES — letter + story side by side                            */}
       {/* ---------------------------------------------------------------- */}
       {(featuredLetter || featuredStory) && (
@@ -129,7 +138,7 @@ export default async function HomePage() {
             </div>
             <div className="mt-10 flex flex-wrap gap-6 text-sm">
               <Link href="/letters" className="font-medium text-accent hover:underline">
-                Read all letters →
+                Voices from the Inside →
               </Link>
               <Link href="/stories" className="font-medium text-accent hover:underline">
                 Read all stories →

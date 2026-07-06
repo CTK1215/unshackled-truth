@@ -36,7 +36,7 @@ export function Footer() {
               {[
                 ["/the-book", "The Book"],
                 ["/blog", "Blog"],
-                ["/letters", "Letters"],
+                ["/letters", "Voices from the Inside"],
                 ["/stories", "Stories"],
                 ["/about", "About"],
                 ["/speaking", "Speaking"],

@@ -8,9 +8,10 @@ import { ButtonLink } from "./Button";
 import { useImageExists } from "./useImageExists";
 
 const NAV = [
+  { href: "/", label: "Home" },
   { href: "/the-book", label: "The Book" },
   { href: "/blog", label: "Blog" },
-  { href: "/letters", label: "Letters" },
+  { href: "/letters", label: "Voices from the Inside" },
   { href: "/stories", label: "Stories" },
   { href: "/about", label: "About" },
   { href: "/speaking", label: "Speaking" },
@@ -70,10 +71,10 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm font-medium transition-colors ${
+              className={`relative py-1.5 text-sm font-medium transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:origin-left after:rounded-full after:bg-accent after:transition-transform after:duration-300 after:ease-out ${
                 isActive(item.href)
-                  ? "text-accent"
-                  : "text-fg-muted hover:text-fg"
+                  ? "text-accent after:scale-x-100"
+                  : "text-fg-muted after:scale-x-0 hover:text-fg hover:after:scale-x-100"
               }`}
             >
               {item.label}
