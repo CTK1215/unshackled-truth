@@ -9,6 +9,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { PostCard } from "@/components/PostCard";
 import { QuoteCard } from "@/components/QuoteCard";
 import { VerseBand } from "@/components/VerseBand";
+import { Reveal } from "@/components/Reveal";
 import { siteConfig } from "@/lib/site";
 import { getFeaturedPosts, getLetters, getStories } from "@/lib/content";
 
@@ -28,7 +29,7 @@ export default async function HomePage() {
       {/* ---------------------------------------------------------------- */}
       <section className="bg-vignette relative overflow-hidden">
         <Container className="relative py-24 sm:py-32 md:py-40">
-          <div className="max-w-3xl animate-fade-up">
+          <div className="hero-stagger max-w-3xl">
             <p className="eyebrow mb-5">Testimony · Recovery · Redemption</p>
             <h1 className="text-balance font-display text-5xl font-semibold leading-[1.05] sm:text-6xl md:text-7xl">
               The truth,{" "}
@@ -60,16 +61,18 @@ export default async function HomePage() {
       <section className="py-20 sm:py-28">
         <Container>
           <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-            <div className="relative mx-auto w-full max-w-xs md:max-w-sm">
-              <div className="absolute -inset-4 -z-10 rounded-3xl bg-accent/10 blur-2xl" />
-              <CoverImage
-                src={siteConfig.book.coverImage}
-                alt={`Cover of ${siteConfig.book.title}`}
-                priority
-                className="w-full rounded-lg border border-border shadow-2xl"
-              />
-            </div>
-            <div>
+            <Reveal from="left" className="relative mx-auto w-full max-w-xs md:max-w-sm">
+              <div className="tilt-cover relative">
+                <div className="absolute -inset-4 -z-10 rounded-3xl bg-accent/10 blur-2xl" />
+                <CoverImage
+                  src={siteConfig.book.coverImage}
+                  alt={`Cover of ${siteConfig.book.title}`}
+                  priority
+                  className="w-full rounded-lg border border-border shadow-2xl"
+                />
+              </div>
+            </Reveal>
+            <Reveal from="right" delay={120}>
               <p className="eyebrow mb-3">The Book</p>
               <h2 className="text-balance font-display text-4xl font-semibold leading-tight sm:text-5xl">
                 {siteConfig.book.title}
@@ -95,7 +98,15 @@ export default async function HomePage() {
                   Buy on Amazon
                 </ButtonLink>
               </div>
-            </div>
+              <p className="mt-4 text-sm">
+                <Link
+                  href="/free-chapter"
+                  className="font-medium text-accent underline underline-offset-4 hover:text-accent-hover"
+                >
+                  Or read Chapter One free →
+                </Link>
+              </p>
+            </Reveal>
           </div>
         </Container>
       </section>
@@ -103,7 +114,9 @@ export default async function HomePage() {
       {/* ---------------------------------------------------------------- */}
       {/* ANCHOR VERSE — 2 Corinthians 5:17                                */}
       {/* ---------------------------------------------------------------- */}
-      <VerseBand />
+      <Reveal>
+        <VerseBand />
+      </Reveal>
 
       {/* ---------------------------------------------------------------- */}
       {/* VOICES — letter + story side by side                            */}
@@ -118,22 +131,26 @@ export default async function HomePage() {
             />
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {featuredLetter && (
-                <QuoteCard
-                  href={`/letters#${featuredLetter.slug}`}
-                  excerpt={featuredLetter.excerpt}
-                  attribution={featuredLetter.fromName}
-                  meta="From inside"
-                  date={featuredLetter.date}
-                />
+                <Reveal>
+                  <QuoteCard
+                    href={`/letters#${featuredLetter.slug}`}
+                    excerpt={featuredLetter.excerpt}
+                    attribution={featuredLetter.fromName}
+                    meta="From inside"
+                    date={featuredLetter.date}
+                  />
+                </Reveal>
               )}
               {featuredStory && (
-                <QuoteCard
-                  href={`/stories#${featuredStory.slug}`}
-                  excerpt={featuredStory.excerpt}
-                  attribution={featuredStory.name}
-                  meta={featuredStory.milestone}
-                  date={featuredStory.date}
-                />
+                <Reveal delay={140}>
+                  <QuoteCard
+                    href={`/stories#${featuredStory.slug}`}
+                    excerpt={featuredStory.excerpt}
+                    attribution={featuredStory.name}
+                    meta={featuredStory.milestone}
+                    date={featuredStory.date}
+                  />
+                </Reveal>
               )}
             </div>
             <div className="mt-10 flex flex-wrap gap-6 text-sm">
@@ -167,8 +184,10 @@ export default async function HomePage() {
             </Link>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <PostCard key={post.slug} post={post} />
+            {posts.map((post, i) => (
+              <Reveal key={post.slug} delay={i * 110}>
+                <PostCard post={post} />
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -179,6 +198,7 @@ export default async function HomePage() {
       {/* ---------------------------------------------------------------- */}
       <section className="pb-24">
         <Container>
+          <Reveal>
           <div className="relative overflow-hidden rounded-3xl border border-accent/30 bg-vignette px-8 py-16 text-center sm:px-16">
             <p className="eyebrow mb-4">Speaking & Events</p>
             <h2 className="mx-auto max-w-2xl text-balance font-display text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
@@ -201,6 +221,7 @@ export default async function HomePage() {
               </ButtonLink>
             </div>
           </div>
+          </Reveal>
         </Container>
       </section>
     </>

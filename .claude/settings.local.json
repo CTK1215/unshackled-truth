@@ -51,7 +51,32 @@
       "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('registrar:', next\\(\\(e.get\\('vcardArray',[None,[]]\\)[1] for e in d.get\\('entities',[]\\) if 'registrar' in e.get\\('roles',[]\\)\\), None\\)\\); print\\('status:', d.get\\('status'\\)\\); print\\('events:', [\\(e['eventAction'], e['eventDate'][:10]\\) for e in d.get\\('events',[]\\)]\\); print\\('nameservers:', [n['ldhName'] for n in d.get\\('nameservers',[]\\)]\\)\")",
       "Bash(curl -sL -o /dev/null -w \"final URL: %{url_effective}\\\\nstatus: %{http_code}\\\\n\" \"http://unshackledtruthmedia.com\" --max-time 20)",
       "Bash(curl -sL \"https://unshackledtruthmedia.com\" --max-time 20)",
-      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Home tab, animated nav underline, Voices from the Inside rename, 2 Cor 5:17 verse band, photo rotation fix, CMS empty-state fallback, 60s revalidation\")"
+      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Home tab, animated nav underline, Voices from the Inside rename, 2 Cor 5:17 verse band, photo rotation fix, CMS empty-state fallback, 60s revalidation\")",
+      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Point canonical URL at unshackledtruthmedia.com\")",
+      "Bash(nslookup www.unshackledtruthmedia.com)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} -> %{redirect_url}\\\\n\" \"https://unshackledtruthmedia.com\" --max-time 30)",
+      "Bash(curl -sL \"https://www.unshackledtruthmedia.com\" --max-time 30)",
+      "Bash(curl -sL \"https://www.unshackledtruthmedia.com/studio\" --max-time 30)",
+      "Bash(curl -sI \"https://unshackledtruthmedia.com\" --max-time 30)",
+      "Bash(git commit *)",
+      "Bash(curl -s -X POST \"http://localhost:3000/api/contact\" -H \"Content-Type: application/json\" -d '{\"name\":\"TEST — from Claude setup\",\"email\":\"ctkelly1277@gmail.com\",\"organization\":\"Website setup verification\",\"eventType\":\"Other\",\"message\":\"This is a test of your speaking-inquiry form. If you are reading this in your Gmail, Resend is working end-to-end. — Claude\"}' --max-time 45)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} -> %{redirect_url}\\\\n\" --resolve unshackledtruthmedia.com:443:216.150.1.1 \"https://unshackledtruthmedia.com\" --max-time 30)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"https://unshackledtruthmedia.com\" --max-time 30)",
+      "Bash(curl -s -X POST \"https://www.unshackledtruthmedia.com/api/contact\" -H \"Content-Type: application/json\" -d '{\"name\":\"TEST — live site verification\",\"email\":\"ctkelly1277@gmail.com\",\"message\":\"Confirming the LIVE site speaking form emails your inbox. — Claude\"}' --max-time 45)",
+      "Bash(curl -s -X POST \"https://www.unshackledtruthmedia.com/api/checkout\" --max-time 30)",
+      "Bash(curl -s -X POST \"http://localhost:3000/api/checkout\" --max-time 45)",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); url=d.get\\('url',''\\); print\\('checkout URL created:', url[:60]+'...' if url else d\\)\")",
+      "Bash(python -c \"import json,sys; print\\(json.load\\(sys.stdin\\)['url']\\)\")",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__find",
+      "mcp__claude-in-chrome__computer",
+      "mcp__claude-in-chrome__read_page",
+      "Bash(curl -s -o __TRACKED_VAR__/ebook-test.pdf -w 'HTTP %{http_code} | %{content_type} | %{size_download} bytes\\\\n' http://localhost:3000/api/download?session_id=cs_test_a11DPI6XOUtHeOm23EkLYC5e84mBgyuNdxJdJZB0Z77G65ulQFYnMwX1mT --max-time 60)",
+      "Bash(file __TRACKED_VAR__/ebook-test.pdf)",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST \"http://localhost:3000/api/sample\" -H \"Content-Type: application/json\" -d '{\"firstName\":\"Test\",\"email\":\"ctkelly1277@gmail.com\"}' --max-time 45)",
+      "Bash(curl -s \"http://localhost:3000/\" --max-time 30)",
+      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Free-chapter email funnel, real phone number, design phase 2 \\(scroll reveals, hero stagger, page transitions, cover tilt\\)\")"
     ]
   }
 }

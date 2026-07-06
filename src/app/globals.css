@@ -148,6 +148,102 @@ h3,
   list-style: decimal;
 }
 
+/* Slow breathing glow behind the hero */
+@keyframes hero-glow {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(2%) scale(1.06);
+  }
+}
+.bg-vignette::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10%;
+  pointer-events: none;
+  background: radial-gradient(
+    50% 45% at 50% 0%,
+    rgba(43, 130, 219, 0.16) 0%,
+    rgba(43, 130, 219, 0) 70%
+  );
+  animation: hero-glow 9s ease-in-out infinite;
+}
+.bg-vignette {
+  position: relative;
+}
+
+/* Staggered hero entrance */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-stagger > * {
+  animation: rise-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-stagger > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.hero-stagger > *:nth-child(2) {
+  animation-delay: 0.18s;
+}
+.hero-stagger > *:nth-child(3) {
+  animation-delay: 0.34s;
+}
+.hero-stagger > *:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+/* 3D tilt on the book cover */
+.tilt-cover {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: perspective(1100px) rotateY(0deg) rotateX(0deg);
+}
+.tilt-cover:hover {
+  transform: perspective(1100px) rotateY(-7deg) rotateX(2.5deg)
+    translateY(-6px);
+}
+
+/* Page-transition fade */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.page-transition {
+  animation: page-in 0.45s ease-out both;
+}
+
+/* Respect reduced-motion everywhere */
+@media (prefers-reduced-motion: reduce) {
+  .bg-vignette::before,
+  .hero-stagger > *,
+  .page-transition,
+  .animate-float,
+  .animate-fade-up {
+    animation: none !important;
+  }
+  .tilt-cover,
+  .tilt-cover:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
 /* Gentle floating for the verse-band dove */
 @keyframes float {
   0%,

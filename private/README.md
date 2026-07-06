@@ -1,4 +1,16 @@
-# Private files — your eBook PDF goes here
+# Private files — your eBook + sample chapter go here
+
+## Free-chapter funnel
+
+Export **Chapter One** as its own PDF and save it here as:
+
+```
+sample-chapter.pdf
+```
+
+Visitors on /free-chapter enter their email and receive that PDF
+automatically (and you get a signup notification).
+
 
 This folder is **not** part of the public website. Nothing in here can be opened
 by visitors through a URL. It is only readable by the server, and only handed to

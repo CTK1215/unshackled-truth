@@ -43,6 +43,9 @@ export const siteConfig = {
     ebookPriceUsd: 6.99,
     // The PDF in the private/ folder for direct-sale delivery:
     ebookFileName: "the-cracks-beneath-the-surface.pdf",
+    // The free sample chapter (email-gated). Export Chapter One as a PDF and
+    // save it as private/sample-chapter.pdf to switch the funnel on.
+    sampleChapterFileName: "sample-chapter.pdf",
     // The real back-cover description:
     description: [
       "I grew up in the wreckage of addiction, abuse, and broken promises. By the time I was sixteen, I was already drowning in anger, drugs, and violence — running from a wound I didn't know how to name. That wound led me to prison, where I believed “life meant life,” and hope had no place.",
@@ -55,8 +58,7 @@ export const siteConfig = {
   contact: {
     // Public email shown on the site (you're setting this address up now):
     email: "Chris@UnshackledTruthMedia.com",
-    // TODO: replace with the real phone number you want shown publicly.
-    phone: "(555) 123-4567",
+    phone: "(909) 353-7661",
     // Where speaking-inquiry form submissions are emailed. Keep this as your
     // Gmail until Chris@UnshackledTruthMedia.com is live, then switch it.
     inquiryEmail: "ctkelly1277@gmail.com",

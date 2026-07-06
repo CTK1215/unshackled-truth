@@ -41,6 +41,7 @@ export default async function BookPage({
           <div className="grid items-start gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:gap-16">
             {/* Cover */}
             <div className="relative mx-auto w-full max-w-sm md:sticky md:top-24">
+              <div className="tilt-cover">
               <div className="absolute -inset-5 -z-10 rounded-[2rem] bg-accent/10 blur-3xl" />
               <CoverImage
                 src={book.coverImage}
@@ -48,6 +49,7 @@ export default async function BookPage({
                 priority
                 className="w-full rounded-lg border border-border shadow-2xl"
               />
+              </div>
             </div>
 
             {/* Details */}
@@ -81,6 +83,14 @@ export default async function BookPage({
                   Print &amp; Kindle editions are on Amazon. The eBook (PDF) is
                   available to buy directly here — instant download after
                   checkout.
+                </p>
+                <p className="mt-3 text-sm">
+                  <a
+                    href="/free-chapter"
+                    className="font-medium text-accent underline underline-offset-4 hover:text-accent-hover"
+                  >
+                    Not sure yet? Read Chapter One free →
+                  </a>
                 </p>
               </div>
 

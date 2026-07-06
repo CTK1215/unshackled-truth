@@ -35,6 +35,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               {[
                 ["/the-book", "The Book"],
+                ["/free-chapter", "Free Chapter"],
                 ["/blog", "Blog"],
                 ["/letters", "Voices from the Inside"],
                 ["/stories", "Stories"],
