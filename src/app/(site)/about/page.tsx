@@ -9,13 +9,12 @@ export const metadata: Metadata = {
   description: `The story behind ${siteConfig.brand} — ${siteConfig.authorName}'s testimony.`,
 };
 
-// Edit this testimony freely — it's placeholder text written to fit the theme.
+// Your testimony, drawn from the book's back cover. Edit freely to expand it.
 const testimony: string[] = [
-  "I wasn't supposed to make it out of the life I was living. Statistically, a lot of men like me don't. This is the short version of how I did — and why I can't stop talking about it.",
-  "I grew up learning that survival meant never showing what was underneath. That armor got me through a childhood it wasn't built to survive, and then it got me into a courtroom, and then it got me a number instead of a name.",
-  "Prison is where the armor finally cracked. Not because I was strong, but because I had finally run out of places to hide. On a bottom bunk, out of options and out of myself, I met God — not the God of the parole-board performance, but the one who was there in the dark asking if I was finally ready to be honest.",
-  "I was. It didn't fix everything overnight. But it started something that the free world didn't undo when the gate opened. I got clean. I stayed clean. I learned that freedom is a skill you practice, one honest choice at a time.",
-  "Now I write, I speak, and I stay in the fight — for the men still inside, for people clawing their way out of addiction, and for anyone who was told their story was already over. It isn't. That's the whole message. That's the unshackled truth.",
+  "From prison cells to freedom in Christ — my life is proof that no one is too far gone. What once defined me was crime, addiction, and shame. What defines me now is grace, redemption, and a God who never let go.",
+  "I grew up in the wreckage of addiction, abuse, and broken promises. By the time I was sixteen, I was already drowning in anger, drugs, and violence — running from a wound I didn't know how to name. That wound led me to prison, where I believed “life meant life,” and hope had no place.",
+  "But even in the darkest cells, God was there. His grace broke through the cracks in my rebellion, rewriting a story I thought was finished. Over time, I came to know the God who heals, forgives, and restores. He didn't just change my circumstances — He changed me.",
+  "Now I write, I speak, and I stay in the fight — for the men still inside, for people clawing their way out of addiction, and for anyone who was told their story was already over. It isn't. If you have ever felt forgotten, unworthy, or trapped in cycles you can't escape, my story is living proof: grace still breaks chains.",
 ];
 
 const facts = [
@@ -59,13 +58,20 @@ export default function AboutPage() {
 
       <section className="py-12 sm:py-16">
         <Container size="narrow">
-          {/* Photo at 16, floated so the testimony wraps around it */}
-          <div className="float-right mb-4 ml-6 w-36 sm:w-52">
+          {/* Then & now, floated so the testimony wraps around them */}
+          <div className="float-right mb-4 ml-6 flex w-36 flex-col gap-5 sm:w-52">
             <Figure
               src="/chris-at-16.jpg"
               alt="Christopher Kelly at sixteen years old"
-              caption="Me at 16 — long before any of this."
+              caption="Me at 16 — already drowning, long before prison."
               hint="Add /chris-at-16.jpg"
+              ratio="aspect-[4/5]"
+            />
+            <Figure
+              src="/chris-now.jpg"
+              alt="Christopher Kelly today"
+              caption="Me now — living proof grace still breaks chains."
+              hint="Add /chris-now.jpg"
               ratio="aspect-[4/5]"
             />
           </div>

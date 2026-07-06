@@ -24,7 +24,7 @@ export const siteConfig = {
 
   /** One-line description used for SEO and social previews. */
   tagline:
-    "One man's testimony from behind bars to the free world — the truth, unshackled.",
+    "From prison cells to freedom in Christ — proof that no one is too far gone.",
 
   /** Full URL of the live site once deployed (used for SEO metadata). */
   url: "https://unshackledtruth.com",
@@ -32,30 +32,33 @@ export const siteConfig = {
   /** ---- The Book ------------------------------------------------------- */
   book: {
     title: "The Cracks Beneath the Surface",
-    // TODO / confirm: replace with your exact subtitle from the cover.
-    subtitle: "Unmasking and Confronting the Struggles We Hide",
+    subtitle:
+      "Unmasking the Lies, Confronting the Pain, and Finding God in the Midst of It All",
     // Save your real cover as public/book-cover.jpg. Until that file exists,
     // the site automatically shows the styled placeholder instead.
     coverImage: "/book-cover.jpg",
     // Clean canonical Amazon product link (ASIN B0G1HZQ5JL):
     amazonUrl: "https://www.amazon.com/dp/B0G1HZQ5JL",
-    // Price for the direct eBook/PDF sale on this site (USD) — confirm this:
-    ebookPriceUsd: 9.99,
-    // The PDF you upload to the private/ folder for direct-sale delivery:
+    // Price for the direct eBook/PDF sale on this site (USD):
+    ebookPriceUsd: 6.99,
+    // The PDF in the private/ folder for direct-sale delivery:
     ebookFileName: "the-cracks-beneath-the-surface.pdf",
-    // TODO / confirm: paste your real back-cover description (1–3 paragraphs).
+    // The real back-cover description:
     description: [
-      "We all learn to smooth things over on top — to look fine, to look faithful, to look like we've got it all together. But the cracks beneath the surface don't disappear just because we've painted over them.",
-      "This is an honest, unflinching look at the struggles we hide, and how facing them in the light of God is the only way they ever truly heal.",
+      "I grew up in the wreckage of addiction, abuse, and broken promises. By the time I was sixteen, I was already drowning in anger, drugs, and violence — running from a wound I didn't know how to name. That wound led me to prison, where I believed “life meant life,” and hope had no place.",
+      "But even in the darkest cells, God was there. His grace broke through the cracks in my rebellion, rewriting a story I thought was finished. Over time, I came to know the God who heals, forgives, and restores. He didn't just change my circumstances — He changed me.",
+      "This book is not theory. It is testimony. It is the story of a man who murdered, who was lost, who thought he was beyond repair — and of a God who brings beauty out of ashes. If you have ever felt forgotten, unworthy, or trapped in cycles you can't escape, my story is living proof: grace still breaks chains.",
     ],
   },
 
   /** ---- Contact / Speaking --------------------------------------------- */
   contact: {
-    // TODO / confirm: the email + phone you want shown publicly on the site.
-    email: "you@unshackledtruth.com",
+    // Public email shown on the site (you're setting this address up now):
+    email: "Chris@UnshackledTruthMedia.com",
+    // TODO: replace with the real phone number you want shown publicly.
     phone: "(555) 123-4567",
-    // Where speaking-inquiry form submissions are emailed (your inbox):
+    // Where speaking-inquiry form submissions are emailed. Keep this as your
+    // Gmail until Chris@UnshackledTruthMedia.com is live, then switch it.
     inquiryEmail: "ctkelly1277@gmail.com",
   },
 

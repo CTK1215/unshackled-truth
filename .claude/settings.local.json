@@ -32,7 +32,10 @@
       "Bash(mkdir -p public/media)",
       "Bash(ffmpeg -y -i \"C:/Users/Christopher/OneDrive/Pictures/Camera Roll/IMG_0022.MOV\" -vf \"scale=-2:720\" -c:v libx264 -profile:v high -preset veryfast -crf 23 -c:a aac -b:a 128k -movflags +faststart public/media/first-day-out.mp4)",
       "Bash(ffmpeg -y -ss 2 -i \"C:/Users/Christopher/OneDrive/Pictures/Camera Roll/IMG_0022.MOV\" -frames:v 1 -vf \"scale=-2:720\" -q:v 3 public/media/first-day-out-poster.jpg)",
-      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Rebrand to logo blue; add first-day-out video; logo/cover/photo with graceful fallbacks\")"
+      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Rebrand to logo blue; add first-day-out video; logo/cover/photo with graceful fallbacks\")",
+      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277-@gmail.com\" -c core.safecrlf=false commit -q -m \"Real content: cover, logo, photos, back-cover description, subtitle, \\\\$6.99 eBook, manuscript PDF\")",
+      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -m \"Real content: cover, logo, photos, back-cover description, subtitle, 6.99 eBook, manuscript PDF\")",
+      "Bash(rm -f .git/index.lock)"
     ]
   }
 }
