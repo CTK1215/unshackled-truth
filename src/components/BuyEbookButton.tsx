@@ -4,11 +4,21 @@ import { useState } from "react";
 import { Button } from "./Button";
 
 /**
- * Starts a Stripe Checkout session for the direct ebook sale.
+ * Starts a Stripe Checkout session for a direct digital sale (the eBook by
+ * default, or the fillable workbook via product="workbook").
  * If Stripe isn't configured yet, the API responds with a clear message and
  * we show it inline instead of failing silently.
  */
-export function BuyEbookButton({ priceUsd }: { priceUsd: number }) {
+export function BuyEbookButton({
+  priceUsd,
+  product = "ebook",
+  label = "Buy the eBook",
+}: {
+  priceUsd: number;
+  /** "ebook", "workbook", or "store:<slug>" for a CMS store product. */
+  product?: string;
+  label?: string;
+}) {
   const [loading, setLoading] = useState(false);
   const [note, setNote] = useState<string | null>(null);
 
@@ -16,7 +26,11 @@ export function BuyEbookButton({ priceUsd }: { priceUsd: number }) {
     setLoading(true);
     setNote(null);
     try {
-      const res = await fetch("/api/checkout", { method: "POST" });
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ product }),
+      });
       const data = (await res.json()) as { url?: string; error?: string };
       if (data.url) {
         window.location.href = data.url;
@@ -36,7 +50,7 @@ export function BuyEbookButton({ priceUsd }: { priceUsd: number }) {
   return (
     <div>
       <Button size="lg" onClick={checkout} disabled={loading}>
-        {loading ? "Starting checkout…" : `Buy the eBook — $${priceUsd.toFixed(2)}`}
+        {loading ? "Starting checkout…" : `${label} — $${priceUsd.toFixed(2)}`}
       </Button>
       {note && <p className="mt-3 text-sm text-fg-muted">{note}</p>}
     </div>

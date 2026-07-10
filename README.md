@@ -83,20 +83,24 @@ emailed to you:
 
 Inquiries are delivered to the `inquiryEmail` set in `src/lib/site.ts`.
 
-### Direct eBook sales (Stripe)
+### Direct digital sales (Stripe) — eBook + workbook
 
-Amazon handles print/Kindle. To also sell the eBook directly on the site:
+Amazon handles print/Kindle. The site also sells two PDFs directly: the eBook
+and the fillable **Unshackled Truth workbook** (18 weekly studies, sold on the
+Book page). Both use the same checkout and secure download flow, and both PDFs
+live in `private/`. To enable direct sales:
 
 1. Create an account at **stripe.com**.
 2. Copy your **secret key** (start with a test key `sk_test_...`) into `.env.local`:
    ```
    STRIPE_SECRET_KEY=sk_test_your_key
    ```
-3. The "Buy the eBook" button on the Book page now opens Stripe Checkout.
+3. The "Buy the eBook" and "Buy the Workbook" buttons on the Book page now
+   open Stripe Checkout, and buyers get a download link after paying.
 
-> This wires up payment. Delivering the actual PDF file to buyers after payment
-> is the natural next step — ping your developer (or a future session) to add
-> automatic file delivery via a Stripe webhook.
+> After payment, the buyer lands back on the Book page with a download button.
+> The download route double-checks with Stripe that the session was actually
+> paid — and which product it was for — before releasing the file.
 
 ---
 
@@ -152,5 +156,5 @@ and shows on the About page.
 - [ ] Update the testimony on the About page (`src/app/(site)/about/page.tsx`)
 - [ ] Connect the CMS and add real blog posts / letters / stories
 - [ ] Turn on Resend so speaking requests reach your inbox
-- [ ] Turn on Stripe + drop your PDF in `private/` for direct eBook sales
+- [ ] Turn on Stripe + drop your PDFs in `private/` for direct eBook/workbook sales
 - [ ] Deploy to Vercel and connect your domain

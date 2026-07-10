@@ -4,6 +4,7 @@ import { Container } from "./Container";
 import { BrandLogo } from "./BrandLogo";
 
 const socials = [
+  { key: "tiktok", label: "TikTok" },
   { key: "instagram", label: "Instagram" },
   { key: "facebook", label: "Facebook" },
   { key: "youtube", label: "YouTube" },
@@ -35,6 +36,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               {[
                 ["/the-book", "The Book"],
+                ["/store", "Store"],
                 ["/free-chapter", "Free Chapter"],
                 ["/blog", "Blog"],
                 ["/letters", "Voices from the Inside"],

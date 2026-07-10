@@ -29,15 +29,23 @@ const highlights = [
 export default async function BookPage({
   searchParams,
 }: {
-  searchParams: Promise<{ purchase?: string; session_id?: string }>;
+  searchParams: Promise<{
+    purchase?: string;
+    session_id?: string;
+    product?: string;
+  }>;
 }) {
-  const { book } = siteConfig;
-  const { purchase, session_id } = await searchParams;
+  const { book, workbook } = siteConfig;
+  const { purchase, session_id, product } = await searchParams;
   return (
     <>
       <section className="bg-vignette py-16 sm:py-24">
         <Container>
-          <PurchaseBanner status={purchase} sessionId={session_id} />
+          <PurchaseBanner
+            status={purchase}
+            sessionId={session_id}
+            product={product}
+          />
           <div className="grid items-start gap-12 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:gap-16">
             {/* Cover */}
             <div className="relative mx-auto w-full max-w-sm md:sticky md:top-24">
@@ -106,6 +114,52 @@ export default async function BookPage({
                     </h3>
                     <p className="mt-2 text-sm leading-relaxed text-fg-muted">
                       {h.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Companion workbook */}
+          <div
+            id="workbook"
+            className="mt-16 rounded-3xl border border-accent/30 bg-bg-elev p-8 sm:p-10 md:mt-24"
+          >
+            <div className="grid gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:gap-12">
+              <div>
+                <p className="eyebrow mb-3">The Companion Workbook</p>
+                <h2 className="text-balance font-display text-3xl font-semibold leading-tight sm:text-4xl">
+                  {workbook.title}
+                  <span className="mt-1 block text-xl italic text-fg-muted sm:text-2xl">
+                    {workbook.subtitle}
+                  </span>
+                </h2>
+                <div className="mt-5 space-y-4 leading-relaxed text-fg-muted">
+                  {workbook.description.map((p) => (
+                    <p key={p}>{p}</p>
+                  ))}
+                </div>
+                <div className="mt-7">
+                  <BuyEbookButton
+                    priceUsd={workbook.priceUsd}
+                    product="workbook"
+                    label="Buy the Workbook"
+                  />
+                </div>
+                <p className="mt-4 text-sm text-fg-subtle">
+                  Fillable PDF — instant download after checkout. Yours to keep,
+                  print, and work through at your own pace.
+                </p>
+              </div>
+              <div className="flex flex-col justify-center gap-4">
+                {workbook.highlights.map((h) => (
+                  <div
+                    key={h}
+                    className="rounded-xl border border-border bg-bg p-5"
+                  >
+                    <p className="font-display text-lg font-semibold text-accent">
+                      {h}
                     </p>
                   </div>
                 ))}

@@ -30,6 +30,32 @@ export interface Letter {
   bodyHtml: string;
 }
 
+export type ProductCategory =
+  | "Journal"
+  | "Reflection Guide"
+  | "Card Pack"
+  | "Devotional"
+  | "Workbook"
+  | "Other";
+
+export interface Product {
+  slug: string;
+  title: string;
+  category: ProductCategory;
+  tagline?: string;
+  description: string;
+  /** Missing/0 = not yet for sale ("coming soon"). */
+  priceUsd?: number;
+  /** CDN URL of the cover image, if any. */
+  imageUrl?: string;
+  /** True when a deliverable file exists (buyable directly on the site). */
+  hasFile: boolean;
+  /** Optional external purchase link (e.g. Amazon). */
+  externalUrl?: string;
+  featured?: boolean;
+  date: string;
+}
+
 export interface Story {
   slug: string;
   name: string;

@@ -1,5 +1,10 @@
-import type { Post, Letter, Story } from "./types";
-import { samplePosts, sampleLetters, sampleStories } from "./sample-data";
+import type { Post, Letter, Story, Product } from "./types";
+import {
+  samplePosts,
+  sampleLetters,
+  sampleStories,
+  sampleProducts,
+} from "./sample-data";
 
 /**
  * ============================================================================
@@ -76,4 +81,15 @@ export async function getStories(): Promise<Story[]> {
 export async function getStory(slug: string): Promise<Story | null> {
   const stories = await getStories();
   return stories.find((s) => s.slug === slug) ?? null;
+}
+
+/* ------------------------------- Products ------------------------------ */
+
+export async function getProducts(): Promise<Product[]> {
+  if (isCmsConfigured()) {
+    const { fetchProducts } = await import("./sanity/queries");
+    const products = await fetchProducts();
+    if (products.length > 0) return products;
+  }
+  return [...sampleProducts].sort(byDateDesc);
 }

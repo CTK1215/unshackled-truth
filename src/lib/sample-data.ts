@@ -1,4 +1,4 @@
-import type { Post, Letter, Story } from "./types";
+import type { Post, Letter, Story, Product } from "./types";
 
 /**
  * Sample content so the site looks finished immediately and runs with no CMS
@@ -118,5 +118,53 @@ export const sampleStories: Story[] = [
       <p>Twenty years in and out of the system. I've sat through every program, heard every speaker, nodded at every slogan. Your story was the first one that didn't feel like a lie told to inmates by people who'd never been in one.</p>
       <p>Two years clean now. Working. Sponsoring a younger guy who reminds me of me. That's how it moves — one man at a time.</p>
     `,
+  },
+];
+
+/**
+ * Sample store products shown as "coming soon" until real products are added
+ * (via the Studio dashboard or the product-creation agent). None are buyable —
+ * they have no price or file — so nothing misleading is ever sold.
+ */
+export const sampleProducts: Product[] = [
+  {
+    slug: "grace-over-shame-journal",
+    title: "Grace Over Shame Journal",
+    category: "Journal",
+    tagline: "90 days of guided writing for the road out.",
+    description:
+      "A daily journal built around the truths in The Cracks Beneath the Surface — one honest page at a time: what happened, what it taught you, and what grace says about it.",
+    hasFile: false,
+    date: "2026-07-01",
+  },
+  {
+    slug: "cracks-reflection-guide",
+    title: "The Cracks Reflection Guide",
+    category: "Reflection Guide",
+    tagline: "Chapter-by-chapter questions for readers and groups.",
+    description:
+      "Walk through the book slowly — alone, with a mentor, or in a group. Honest questions for every chapter, with space to write what surfaces.",
+    hasFile: false,
+    date: "2026-07-01",
+  },
+  {
+    slug: "scripture-strength-cards",
+    title: "Scripture Strength Cards",
+    category: "Card Pack",
+    tagline: "Verses for the hardest moments, one card at a time.",
+    description:
+      "A printable pack of scripture cards chosen for the moments recovery gets loud — cravings, shame spirals, sleepless nights. Print them, cut them, carry them.",
+    hasFile: false,
+    date: "2026-07-01",
+  },
+  {
+    slug: "30-day-freedom-devotional",
+    title: "30-Day Freedom Devotional",
+    category: "Devotional",
+    tagline: "One month of mornings anchored in truth.",
+    description:
+      "Thirty short daily readings — a verse, a hard-won truth from the inside, and one question to carry into the day.",
+    hasFile: false,
+    date: "2026-07-01",
   },
 ];

@@ -54,6 +54,26 @@ export const siteConfig = {
     ],
   },
 
+  /** ---- The Workbook (fillable PDF, sold directly on this site) --------- */
+  workbook: {
+    title: "Unshackled Truth",
+    subtitle: "A Faith-Based Workbook for Breaking Free",
+    // Price for the direct fillable-PDF sale on this site (USD) — change this
+    // one line to adjust it:
+    priceUsd: 9.99,
+    // The PDF in the private/ folder for direct-sale delivery:
+    fileName: "unshackled-truth-workbook.pdf",
+    description: [
+      "This isn't a workbook of nice thoughts to skim through — it's a tool for real change. Eighteen weeks of guided study, reflection, and honest work: who God is, identity in Christ, grace over shame, breaking strongholds, overcoming temptation, and finishing the race.",
+      "Every page is fillable — type your answers right into the PDF on a phone, tablet, or computer, or print it and write by hand. Work through it alone, with a mentor, or in a group.",
+    ],
+    highlights: [
+      "18 weekly studies — 136 pages",
+      "Fillable PDF — type in it or print it",
+      "Built for recovery, one week at a time",
+    ],
+  },
+
   /** ---- Contact / Speaking --------------------------------------------- */
   contact: {
     // Public email shown on the site (you're setting this address up now):
@@ -66,6 +86,7 @@ export const siteConfig = {
 
   /** ---- Social links (leave "" to hide) -------------------------------- */
   social: {
+    tiktok: "",
     instagram: "",
     facebook: "",
     youtube: "",

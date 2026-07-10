@@ -1,7 +1,14 @@
 import { toHTML } from "@portabletext/to-html";
 import type { PortableTextBlock } from "@portabletext/types";
 import { sanityClient } from "@/sanity/client";
-import type { Post, Letter, Story, BlogCategory } from "../types";
+import type {
+  Post,
+  Letter,
+  Story,
+  BlogCategory,
+  Product,
+  ProductCategory,
+} from "../types";
 
 /**
  * Real CMS queries. These run only when NEXT_PUBLIC_SANITY_PROJECT_ID is set
@@ -98,4 +105,62 @@ export async function fetchStories(): Promise<Story[]> {
     excerpt: d.excerpt ?? "",
     bodyHtml: bodyToHtml(d.body),
   }));
+}
+
+/* ------------------------------- Products ------------------------------ */
+
+interface RawProduct {
+  slug?: { current?: string };
+  title?: string;
+  category?: ProductCategory;
+  tagline?: string;
+  description?: string;
+  priceUsd?: number;
+  imageUrl?: string;
+  fileUrl?: string;
+  externalUrl?: string;
+  featured?: boolean;
+  date?: string;
+}
+
+const PRODUCT_PROJECTION = `{
+  title, slug, category, tagline, description, priceUsd, externalUrl,
+  featured, date,
+  "imageUrl": coverImage.asset->url,
+  "fileUrl": file.asset->url
+}`;
+
+function mapProduct(d: RawProduct): Product {
+  return {
+    slug: d.slug?.current ?? "",
+    title: d.title ?? "Untitled",
+    category: (d.category ?? "Other") as ProductCategory,
+    tagline: d.tagline,
+    description: d.description ?? "",
+    priceUsd: d.priceUsd,
+    imageUrl: d.imageUrl,
+    hasFile: Boolean(d.fileUrl),
+    externalUrl: d.externalUrl,
+    featured: Boolean(d.featured),
+    date: d.date ?? "",
+  };
+}
+
+export async function fetchProducts(): Promise<Product[]> {
+  const docs = await sanityClient.fetch<RawProduct[]>(
+    `*[_type == "product"] | order(featured desc, date desc) ${PRODUCT_PROJECTION}`,
+  );
+  return docs.map(mapProduct);
+}
+
+/** Server-only: fetch one product including its private file URL. */
+export async function fetchProductWithFile(
+  slug: string,
+): Promise<(Product & { fileUrl?: string }) | null> {
+  const d = await sanityClient.fetch<RawProduct | null>(
+    `*[_type == "product" && slug.current == $slug][0] ${PRODUCT_PROJECTION}`,
+    { slug },
+  );
+  if (!d) return null;
+  return { ...mapProduct(d), fileUrl: d.fileUrl };
 }

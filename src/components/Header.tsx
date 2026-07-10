@@ -10,6 +10,7 @@ import { useImageExists } from "./useImageExists";
 const NAV = [
   { href: "/", label: "Home" },
   { href: "/the-book", label: "The Book" },
+  { href: "/store", label: "Store" },
   { href: "/blog", label: "Blog" },
   { href: "/letters", label: "Voices from the Inside" },
   { href: "/stories", label: "Stories" },

@@ -2,10 +2,19 @@
 export function PurchaseBanner({
   status,
   sessionId,
+  product,
 }: {
   status?: string;
   sessionId?: string;
+  product?: string;
 }) {
+  const isWorkbook = product === "workbook";
+  const itemLabel = isWorkbook
+    ? "workbook"
+    : product?.startsWith("store:")
+      ? "download"
+      : "eBook";
+
   if (status === "success") {
     return (
       <div className="mb-10 rounded-2xl border border-accent/50 bg-accent/10 p-6 text-center">
@@ -13,14 +22,16 @@ export function PurchaseBanner({
           Thank you — your purchase is complete.
         </p>
         <p className="mt-2 text-fg-muted">
-          Your eBook is ready to download. Keep the file somewhere safe.
+          Your {itemLabel} is ready to download. Keep the file somewhere safe.
+          {isWorkbook &&
+            " Open it in a PDF app (like Adobe Acrobat Reader) to fill it in on your device."}
         </p>
         {sessionId && (
           <a
             href={`/api/download?session_id=${encodeURIComponent(sessionId)}`}
             className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 font-semibold text-accent-contrast transition-colors hover:bg-accent-hover"
           >
-            ↓ Download your eBook (PDF)
+            ↓ Download your {itemLabel} (PDF)
           </a>
         )}
       </div>
