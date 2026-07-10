@@ -86,9 +86,9 @@ export const siteConfig = {
 
   /** ---- Social links (leave "" to hide) -------------------------------- */
   social: {
-    tiktok: "",
-    instagram: "",
-    facebook: "",
+    tiktok: "https://www.tiktok.com/@unshackledtruth4",
+    instagram: "https://www.instagram.com/unshackledtruthmedia/",
+    facebook: "https://www.facebook.com/profile.php?id=61574166560272",
     youtube: "",
     x: "",
   },
