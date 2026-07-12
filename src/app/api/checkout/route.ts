@@ -65,13 +65,15 @@ export async function POST(request: Request) {
       priceUsd: siteConfig.workbook.priceUsd,
     };
   } else {
-    product = "ebook";
-    returnPath = "/the-book";
-    item = {
-      name: `${siteConfig.book.title} — eBook (PDF)`,
-      description: siteConfig.book.subtitle,
-      priceUsd: siteConfig.book.ebookPriceUsd,
-    };
+    // The eBook is enrolled in KDP Select (Kindle Unlimited), which requires
+    // Amazon exclusivity — so direct eBook checkout is turned off. Past buyers
+    // can still re-download via /api/download.
+    return NextResponse.json(
+      {
+        error: `The eBook is available on Amazon — free with Kindle Unlimited: ${siteConfig.book.amazonUrl}`,
+      },
+      { status: 400 },
+    );
   }
 
   const origin =
