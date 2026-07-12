@@ -28,7 +28,7 @@ export default async function LettersPage() {
           Real words from people still behind the wall. Shared with permission,
           with names used only as each writer wished. If the book or this site
           reached you inside,{" "}
-          <Link href="/speaking" className="text-accent hover:underline">
+          <Link href="/write-to-us" className="text-accent hover:underline">
             write to us
           </Link>{" "}
           — your words may help the next person.

@@ -36,9 +36,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
+  const kind = data.get("kind") === "letter" ? "letter" : "story";
   const name = String(data.get("name") ?? "").trim();
   const email = String(data.get("email") ?? "").trim();
   const milestone = String(data.get("milestone") ?? "").trim();
+  const sender = String(data.get("sender") ?? "").trim();
+  const signAs = String(data.get("signAs") ?? "").trim();
   const story = String(data.get("story") ?? "").trim();
   const consent = data.get("consent");
   const file = data.get("attachment");
@@ -79,26 +82,46 @@ export async function POST(request: Request) {
 
   // No email provider configured yet — log and succeed so the form works.
   if (!apiKey) {
-    console.log("\n📖 New story submission (email not configured):");
+    console.log(`\n📖 New ${kind} submission (email not configured):`);
     console.log({
       name,
       email,
       milestone,
+      sender,
+      signAs,
       story: story.slice(0, 2000),
       attachment: hasFile ? `${file.name} (${file.size} bytes)` : "—",
     });
     return NextResponse.json({ ok: true });
   }
 
+  const isLetter = kind === "letter";
+  const rows: Array<[string, string]> = isLetter
+    ? [
+        ["Name", name],
+        ["Email", email],
+        ["Who it's from", sender || "—"],
+        ["Sign it as", signAs || "— (writer's choice not given)"],
+        ["Permission to publish", "Yes — granted via the form"],
+      ]
+    : [
+        ["Name", name],
+        ["Email", email],
+        ["Where they are", milestone || "—"],
+        ["Permission to publish", "Yes — granted via the form"],
+      ];
+
   const html = `
-    <h2>New story submission</h2>
+    <h2>${isLetter ? "New letter — Voices from the Inside" : "New story submission"}</h2>
     <table style="border-collapse:collapse">
-      <tr><td style="padding:4px 12px 4px 0;font-weight:bold;vertical-align:top">Name</td><td style="padding:4px 0">${escapeHtml(name)}</td></tr>
-      <tr><td style="padding:4px 12px 4px 0;font-weight:bold;vertical-align:top">Email</td><td style="padding:4px 0">${escapeHtml(email)}</td></tr>
-      <tr><td style="padding:4px 12px 4px 0;font-weight:bold;vertical-align:top">Where they are</td><td style="padding:4px 0">${escapeHtml(milestone || "—")}</td></tr>
-      <tr><td style="padding:4px 12px 4px 0;font-weight:bold;vertical-align:top">Permission to publish</td><td style="padding:4px 0">Yes — granted via the form</td></tr>
+      ${rows
+        .map(
+          ([k, v]) =>
+            `<tr><td style="padding:4px 12px 4px 0;font-weight:bold;vertical-align:top">${k}</td><td style="padding:4px 0">${escapeHtml(v)}</td></tr>`,
+        )
+        .join("")}
     </table>
-    <h3>Story</h3>
+    <h3>${isLetter ? "Letter" : "Story"}</h3>
     <p style="white-space:pre-wrap">${story ? escapeHtml(story) : "(sent as an attachment)"}</p>
   `;
 
@@ -106,7 +129,9 @@ export async function POST(request: Request) {
     from: process.env.RESEND_FROM ?? "Unshackled Truth <onboarding@resend.dev>",
     to: [siteConfig.contact.storyEmail],
     reply_to: email,
-    subject: `Story submission from ${name}${milestone ? ` (${milestone})` : ""}`,
+    subject: isLetter
+      ? `Letter from the inside — sent by ${name}`
+      : `Story submission from ${name}${milestone ? ` (${milestone})` : ""}`,
     html,
   };
 
