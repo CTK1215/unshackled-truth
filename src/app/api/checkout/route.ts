@@ -110,8 +110,11 @@ export async function POST(request: Request) {
 
     if (!res.ok || !data.url) {
       console.error("Stripe error:", data.error);
+      // Pass Stripe's reason through so a failing button explains itself
+      // (e.g. an invalid key or an account that can't take live charges yet).
+      const detail = data.error?.message ? ` Stripe says: ${data.error.message}` : "";
       return NextResponse.json(
-        { error: "Couldn't start checkout. Please try Amazon or try again." },
+        { error: `Couldn't start checkout. Please try Amazon or try again.${detail}` },
         { status: 502 },
       );
     }

@@ -52,7 +52,11 @@ export function BuyEbookButton({
       <Button size="lg" onClick={checkout} disabled={loading}>
         {loading ? "Starting checkout…" : `${label} — $${priceUsd.toFixed(2)}`}
       </Button>
-      {note && <p className="mt-3 text-sm text-fg-muted">{note}</p>}
+      {note && (
+        <p role="status" className="mt-3 max-w-md text-sm text-accent">
+          {note}
+        </p>
+      )}
     </div>
   );
 }
