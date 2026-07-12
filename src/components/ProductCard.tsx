@@ -17,7 +17,7 @@ export function ProductCard({ product }: { product: Product }) {
           <img
             src={product.imageUrl}
             alt={`Cover of ${product.title}`}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain p-4"
             loading="lazy"
           />
         ) : (

@@ -60,7 +60,7 @@ export default async function StorePage({
                 src="/unshackled-truth-workbook.jpg"
                 alt={`Cover of the ${workbook.title} workbook`}
                 fill
-                className="object-cover"
+                className="object-contain p-6"
                 sizes="(min-width: 768px) 38vw, 100vw"
               />
             </div>
@@ -137,7 +137,7 @@ export default async function StorePage({
                 src={journal.coverImage}
                 alt={`Cover of ${journal.title} — ${journal.subtitle}`}
                 fill
-                className="object-cover"
+                className="object-contain p-6"
                 sizes="(min-width: 768px) 38vw, 100vw"
               />
             </div>
