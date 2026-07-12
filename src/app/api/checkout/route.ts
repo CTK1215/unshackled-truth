@@ -64,6 +64,14 @@ export async function POST(request: Request) {
       description: "Instant download after checkout.",
       priceUsd: siteConfig.workbook.priceUsd,
     };
+  } else if (body.product === "journal") {
+    product = "journal";
+    returnPath = "/store";
+    item = {
+      name: `${siteConfig.journal.title} — ${siteConfig.journal.subtitle} (PDF)`,
+      description: "Instant download after checkout.",
+      priceUsd: siteConfig.journal.priceUsd,
+    };
   } else {
     // The eBook is enrolled in KDP Select (Kindle Unlimited), which requires
     // Amazon exclusivity — so direct eBook checkout is turned off. Past buyers

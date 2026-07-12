@@ -80,7 +80,11 @@
       "WebSearch",
       "Bash(pandoc \"C:/Users/Christopher/OneDrive/The Cracks Beneth The Surface/Chapter 1_ The Beginning of It All.docx\" -t markdown -o \"C:/Users/CHRIST~1/AppData/Local/Temp/claude/C--Users-Christopher-repos-UnshackledTruth/70502b13-be1a-4d28-a3d6-82a3acee1a84/scratchpad/chapter1.md\")",
       "Bash(git restore *)",
-      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Store page with CMS products + agent API docs, workbook direct sales, TikTok social slot, restored cover/logo\")"
+      "Bash(git -c user.name=\"Christopher Kelly\" -c user.email=\"ctkelly1277@gmail.com\" commit -q -m \"Store page with CMS products + agent API docs, workbook direct sales, TikTok social slot, restored cover/logo\")",
+      "Bash(git checkout *)",
+      "Bash(git branch *)",
+      "Bash(cp \"/root/.claude/uploads/e2206d5c-ec6a-5eb6-998e-0140a54e5137/e06fc6ac-TheFirst30_RecoveryJournal.pdf\" private/the-first-30-recovery-journal.pdf)",
+      "Bash(pdftoppm -jpeg -r 100 -f 1 -l 1 private/the-first-30-recovery-journal.pdf /tmp/claude-0/-home-user-unshackled-truth/e2206d5c-ec6a-5eb6-998e-0140a54e5137/scratchpad/journal-cover)"
     ]
   }
 }

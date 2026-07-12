@@ -11,9 +11,11 @@ export function PurchaseBanner({
   const isWorkbook = product === "workbook";
   const itemLabel = isWorkbook
     ? "workbook"
-    : product?.startsWith("store:")
-      ? "download"
-      : "eBook";
+    : product === "journal"
+      ? "journal"
+      : product?.startsWith("store:")
+        ? "download"
+        : "eBook";
 
   if (status === "success") {
     return (

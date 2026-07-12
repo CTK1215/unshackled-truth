@@ -48,6 +48,7 @@ export async function GET(request: Request) {
     paid = res.ok && session.payment_status === "paid";
     if (
       session.metadata?.product === "workbook" ||
+      session.metadata?.product === "journal" ||
       session.metadata?.product?.startsWith("store:")
     ) {
       product = session.metadata.product;
@@ -105,11 +106,15 @@ export async function GET(request: Request) {
     const fileName =
       product === "workbook"
         ? siteConfig.workbook.fileName
-        : siteConfig.book.ebookFileName;
+        : product === "journal"
+          ? siteConfig.journal.fileName
+          : siteConfig.book.ebookFileName;
     const title =
       product === "workbook"
         ? `${siteConfig.workbook.title} Workbook`
-        : siteConfig.book.title;
+        : product === "journal"
+          ? siteConfig.journal.title
+          : siteConfig.book.title;
     const filePath = path.join(process.cwd(), "private", fileName);
     const file = await readFile(filePath);
     const downloadName = `${title.replace(/[^\w\s-]/g, "").trim()}.pdf`;
