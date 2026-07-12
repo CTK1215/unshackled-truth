@@ -102,8 +102,12 @@ export const siteConfig = {
     // Where speaking-inquiry form submissions are emailed. Keep this as your
     // Gmail until Chris@UnshackledTruthMedia.com is live, then switch it.
     inquiryEmail: "ctkelly1277@gmail.com",
-    // Where "Share your story" submissions are emailed:
-    storyEmail: "Chris@UnshackledTruthMedia.com",
+    // Where "Share your story" / "Write to us" submissions are emailed.
+    // TEMPORARY: pointed at Gmail because Resend's shared test sender can only
+    // deliver to the account owner's address. Once unshackledtruthmedia.com is
+    // verified in Resend (resend.com/domains) and RESEND_FROM uses it, switch
+    // this back to Chris@UnshackledTruthMedia.com.
+    storyEmail: "ctkelly1277@gmail.com",
   },
 
   /** ---- Social links (leave "" to hide) -------------------------------- */
