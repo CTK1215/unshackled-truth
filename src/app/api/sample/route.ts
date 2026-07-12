@@ -105,8 +105,8 @@ export async function POST(request: Request) {
         rewrites stories that look finished.</p>
         <p>If it grabs you, the full book is here:</p>
         <p>
-          • Paperback &amp; Kindle: <a href="${siteConfig.book.amazonUrl}">Amazon</a><br/>
-          • eBook (PDF): <a href="${siteConfig.url}/the-book">${siteConfig.url.replace("https://", "")}/the-book</a>
+          • Paperback, Kindle &amp; eBook: <a href="${siteConfig.book.amazonUrl}">Amazon</a>
+          (free with Kindle Unlimited)
         </p>
         <p>Grace still breaks chains,<br/>${siteConfig.authorName}</p>
       `,
