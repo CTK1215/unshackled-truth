@@ -83,6 +83,21 @@ export async function POST(request: Request) {
     );
   }
 
+  // Optional bonus lead magnet — attach it when the file exists.
+  let reflectionB64: string | null = null;
+  if (siteConfig.book.freeReflectionFileName) {
+    try {
+      const reflectionPath = path.join(
+        process.cwd(),
+        "private",
+        siteConfig.book.freeReflectionFileName,
+      );
+      reflectionB64 = (await readFile(reflectionPath)).toString("base64");
+    } catch {
+      reflectionB64 = null;
+    }
+  }
+
   const from =
     process.env.RESEND_FROM ?? "Unshackled Truth <onboarding@resend.dev>";
   const greeting = firstName ? `${firstName}, thank` : "Thank";
@@ -103,6 +118,13 @@ export async function POST(request: Request) {
         <p>Attached is <strong>Chapter One of ${siteConfig.book.title}</strong> —
         the beginning of a true story about prison, addiction, and the God who
         rewrites stories that look finished.</p>
+        ${
+          reflectionB64
+            ? `<p>I also attached a bonus: <strong>The Cracks Don't Define You</strong>,
+        a free three-part reflection with journaling prompts. It's the same
+        three questions that started my healing.</p>`
+            : ""
+        }
         <p>If it grabs you, the full book is here:</p>
         <p>
           • Paperback, Kindle &amp; eBook: <a href="${siteConfig.book.amazonUrl}">Amazon</a>
@@ -115,6 +137,14 @@ export async function POST(request: Request) {
           filename: "The-Cracks-Beneath-the-Surface-Chapter-One.pdf",
           content: chapterB64,
         },
+        ...(reflectionB64
+          ? [
+              {
+                filename: "The-Cracks-Dont-Define-You-Free-Reflection.pdf",
+                content: reflectionB64,
+              },
+            ]
+          : []),
       ],
     }),
   });
