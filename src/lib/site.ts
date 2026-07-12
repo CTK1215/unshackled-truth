@@ -74,6 +74,26 @@ export const siteConfig = {
     ],
   },
 
+  /** ---- The First 30 (recovery journal PDF, sold directly on this site) - */
+  journal: {
+    title: "The First 30",
+    subtitle: "A No-BS Recovery Field Manual & Reckoning Journal",
+    // Price for the direct PDF sale on this site (USD):
+    priceUsd: 7.99,
+    // The PDF in the private/ folder for direct-sale delivery:
+    fileName: "the-first-30-recovery-journal.pdf",
+    coverImage: "/the-first-30-journal.jpg",
+    description: [
+      "Thirty days. One decision, made again and again. This is the journal for the hardest month of getting clean — not a diary you fall behind on and quit, but a field manual: one page a day, five minutes, morning or night.",
+      "Every day has the same four parts: The Truth — a short, straight read from someone who's been where you are. A Gut Check — one honest question and room to answer it. A Trigger & Craving Log — patterns you can see are patterns you can beat. And One Move — a single doable action for the day.",
+    ],
+    highlights: [
+      "30 days — one page a day",
+      "Five minutes a day, no lectures",
+      "Print it or write on it on a tablet",
+    ],
+  },
+
   /** ---- Contact / Speaking --------------------------------------------- */
   contact: {
     // Public email shown on the site (you're setting this address up now):

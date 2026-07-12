@@ -28,7 +28,7 @@ export default async function StorePage({
   }>;
 }) {
   const [products, params] = await Promise.all([getProducts(), searchParams]);
-  const { workbook } = siteConfig;
+  const { workbook, journal } = siteConfig;
 
   return (
     <section className="py-16 sm:py-24">
@@ -94,6 +94,52 @@ export default async function StorePage({
                   label="Buy the Workbook"
                 />
               </div>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Featured: The First 30 recovery journal (same secure flow) */}
+        <Reveal className="mt-8">
+          <div className="grid gap-8 overflow-hidden rounded-3xl border border-accent/30 bg-bg-elev md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
+            <div className="p-8 sm:p-10">
+              <span className="text-xs font-medium uppercase tracking-widest text-accent">
+                Featured · Recovery Journal
+              </span>
+              <h2 className="mt-2 font-display text-3xl font-semibold">
+                {journal.title}{" "}
+                <span className="italic text-fg-muted">
+                  — {journal.subtitle}
+                </span>
+              </h2>
+              <div className="mt-4 space-y-3 leading-relaxed text-fg-muted">
+                {journal.description.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
+              </div>
+              <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-fg-muted">
+                {journal.highlights.map((h) => (
+                  <li key={h} className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                    {h}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-7">
+                <BuyEbookButton
+                  priceUsd={journal.priceUsd}
+                  product="journal"
+                  label="Buy the Journal"
+                />
+              </div>
+            </div>
+            <div className="relative order-first min-h-56 border-b border-border bg-bg-elev-2 md:order-none md:border-b-0 md:border-l">
+              <Image
+                src={journal.coverImage}
+                alt={`Cover of ${journal.title} — ${journal.subtitle}`}
+                fill
+                className="object-cover"
+                sizes="(min-width: 768px) 38vw, 100vw"
+              />
             </div>
           </div>
         </Reveal>
