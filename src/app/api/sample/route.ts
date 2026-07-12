@@ -146,22 +146,26 @@ export async function POST(request: Request) {
     }),
   }).catch((e) => console.error("Signup notification failed:", e));
 
-  // 3) Add to the mailing list audience, if configured (best-effort).
+  // 3) Add to the mailing list (best-effort). Resend's current API keeps one
+  // contact list per account (POST /contacts, no audience id needed); the
+  // RESEND_AUDIENCE_ID branch remains for accounts still on the older
+  // multi-audience API.
   const audienceId = process.env.RESEND_AUDIENCE_ID;
-  if (audienceId) {
-    fetch(`${RESEND_URL}/audiences/${audienceId}/contacts`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        first_name: firstName || undefined,
-        unsubscribed: false,
-      }),
-    }).catch((e) => console.error("Audience add failed:", e));
-  }
+  const contactsUrl = audienceId
+    ? `${RESEND_URL}/audiences/${audienceId}/contacts`
+    : `${RESEND_URL}/contacts`;
+  fetch(contactsUrl, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      first_name: firstName || undefined,
+      unsubscribed: false,
+    }),
+  }).catch((e) => console.error("Contact add failed:", e));
 
   return NextResponse.json({ ok: true });
 }
