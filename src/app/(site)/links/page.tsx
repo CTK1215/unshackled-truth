@@ -18,8 +18,8 @@ const links = [
   {
     href: "/free-chapter",
     emoji: "📖",
-    title: "Read Chapter One Free",
-    sub: "The start of the story, straight to your inbox",
+    title: "Free: Chapter One + Reflection Guide",
+    sub: "The start of the story plus a 3-part reflection, straight to your inbox",
     featured: true,
   },
   {

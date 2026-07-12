@@ -12,8 +12,9 @@ export const metadata: Metadata = {
 
 const bullets = [
   "The full first chapter as a PDF, straight to your inbox",
+  "Bonus: “The Cracks Don't Define You” — a free 3-part reflection with journaling prompts",
   "The true beginning — no cleaned-up version",
-  "No spam. One email with the chapter, that's it.",
+  "No spam. One email with both PDFs, that's it.",
 ];
 
 export default function FreeChapterPage() {

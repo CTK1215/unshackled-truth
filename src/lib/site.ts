@@ -46,6 +46,9 @@ export const siteConfig = {
     // The free sample chapter (email-gated). Export Chapter One as a PDF and
     // save it as private/sample-chapter.pdf to switch the funnel on.
     sampleChapterFileName: "sample-chapter.pdf",
+    // Bonus lead magnet attached to the same free-chapter email (delete the
+    // file from private/ to turn the bonus off):
+    freeReflectionFileName: "cracks-free-reflection.pdf",
     // The real back-cover description:
     description: [
       "I grew up in the wreckage of addiction, abuse, and broken promises. By the time I was sixteen, I was already drowning in anger, drugs, and violence — running from a wound I didn't know how to name. That wound led me to prison, where I believed “life meant life,” and hope had no place.",
