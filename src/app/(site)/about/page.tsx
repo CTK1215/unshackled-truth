@@ -9,11 +9,15 @@ export const metadata: Metadata = {
   description: `The story behind ${siteConfig.brand} — ${siteConfig.authorName}'s testimony.`,
 };
 
-// Your testimony, drawn from the book's back cover. Edit freely to expand it.
+// Your testimony — drawn from the book's back cover and Chris's own essays
+// ("Hope", "Who I Am Now", "My Mother", "Life After Prison"). Edit freely.
 const testimony: string[] = [
   "From prison cells to freedom in Christ — my life is proof that no one is too far gone. What once defined me was crime, addiction, and shame. What defines me now is grace, redemption, and a God who never let go.",
   "I grew up in the wreckage of addiction, abuse, and broken promises. By the time I was sixteen, I was already drowning in anger, drugs, and violence — running from a wound I didn't know how to name. That wound led me to prison, where I believed “life meant life,” and hope had no place.",
+  "Underneath it all was fear. At a very young age I realized that death was what I was living for, and the thought paralyzed me. I never dealt with it — I ran from it, into drugs, into violence, into every distraction I could find. I was sentenced to life at sixteen, and I spent the next decades in maximum-security prisons believing my story was finished before it ever started.",
   "But even in the darkest cells, God was there. His grace broke through the cracks in my rebellion, rewriting a story I thought was finished. Over time, I came to know the God who heals, forgives, and restores. He didn't just change my circumstances — He changed me.",
+  "What changed wasn't the wall around me — it was the man inside it. I stopped trying to protect the broken little boy behind the image. I learned to tell the truth, to sit with discomfort instead of running from it, and to let God rebuild what I had spent a lifetime wrecking. Behind the wall I became a church leader, a full-time student, and a full-time employee. I earned a degree in counseling. More importantly, I learned who I actually am — not a number, not a case file, but a child of God.",
+  "I didn't get here alone. My mother fought for me for forty years and never let go, even when I gave her every reason to. Through every battle of her own she showed me what strength, mercy, and forgiveness look like — long before I was able to receive them. Everything I build now is part of honoring that.",
   "Now I write, I speak, and I stay in the fight — for the men still inside, for people clawing their way out of addiction, and for anyone who was told their story was already over. It isn't. If you have ever felt forgotten, unworthy, or trapped in cycles you can't escape, my story is living proof: grace still breaks chains.",
 ];
 
