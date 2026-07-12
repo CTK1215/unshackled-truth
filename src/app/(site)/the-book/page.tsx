@@ -85,12 +85,18 @@ export default async function BookPage({
                   <ButtonLink href={book.amazonUrl} size="lg" external>
                     Buy on Amazon
                   </ButtonLink>
-                  <BuyEbookButton priceUsd={book.ebookPriceUsd} />
+                  <ButtonLink
+                    href={book.amazonUrl}
+                    size="lg"
+                    variant="outline"
+                    external
+                  >
+                    Read free with Kindle Unlimited
+                  </ButtonLink>
                 </div>
                 <p className="mt-4 text-sm text-fg-subtle">
-                  Print &amp; Kindle editions are on Amazon. The eBook (PDF) is
-                  available to buy directly here — instant download after
-                  checkout.
+                  Paperback, Kindle, and eBook editions are all on Amazon —
+                  Kindle Unlimited members read it at no extra cost.
                 </p>
                 <p className="mt-3 text-sm">
                   <a

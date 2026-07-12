@@ -65,13 +65,15 @@ export async function POST(request: Request) {
       priceUsd: siteConfig.workbook.priceUsd,
     };
   } else {
-    product = "ebook";
-    returnPath = "/the-book";
-    item = {
-      name: `${siteConfig.book.title} — eBook (PDF)`,
-      description: siteConfig.book.subtitle,
-      priceUsd: siteConfig.book.ebookPriceUsd,
-    };
+    // The eBook is enrolled in KDP Select (Kindle Unlimited), which requires
+    // Amazon exclusivity — so direct eBook checkout is turned off. Past buyers
+    // can still re-download via /api/download.
+    return NextResponse.json(
+      {
+        error: `The eBook is available on Amazon — free with Kindle Unlimited: ${siteConfig.book.amazonUrl}`,
+      },
+      { status: 400 },
+    );
   }
 
   const origin =
@@ -110,8 +112,11 @@ export async function POST(request: Request) {
 
     if (!res.ok || !data.url) {
       console.error("Stripe error:", data.error);
+      // Pass Stripe's reason through so a failing button explains itself
+      // (e.g. an invalid key or an account that can't take live charges yet).
+      const detail = data.error?.message ? ` Stripe says: ${data.error.message}` : "";
       return NextResponse.json(
-        { error: "Couldn't start checkout. Please try Amazon or try again." },
+        { error: `Couldn't start checkout. Please try Amazon or try again.${detail}` },
         { status: 502 },
       );
     }
