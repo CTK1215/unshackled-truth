@@ -102,6 +102,8 @@ export const siteConfig = {
     // Where speaking-inquiry form submissions are emailed. Keep this as your
     // Gmail until Chris@UnshackledTruthMedia.com is live, then switch it.
     inquiryEmail: "ctkelly1277@gmail.com",
+    // Where "Share your story" submissions are emailed:
+    storyEmail: "Chris@UnshackledTruthMedia.com",
   },
 
   /** ---- Social links (leave "" to hide) -------------------------------- */

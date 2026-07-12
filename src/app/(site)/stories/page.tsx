@@ -27,7 +27,7 @@ export default async function StoriesPage() {
           People in recovery, telling the truth about how they got here. Every
           one of these is proof for someone who needs it today. Want to share
           yours?{" "}
-          <Link href="/speaking" className="text-accent hover:underline">
+          <Link href="/share-your-story" className="text-accent hover:underline">
             Send it in
           </Link>
           .
