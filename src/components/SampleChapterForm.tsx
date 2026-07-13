@@ -108,10 +108,10 @@ export function SampleChapterForm() {
         <Button type="submit" size="lg" disabled={status === "submitting"}>
           {status === "submitting"
             ? "Sending…"
-            : "Send Me Chapter One — Free"}
+            : "Send Me Both PDFs — Free"}
         </Button>
         <p className="text-xs text-fg-subtle">
-          One email with the chapter. Unsubscribe anytime.
+          One email with both PDFs. Unsubscribe anytime.
         </p>
       </div>
     </form>

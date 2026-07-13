@@ -35,7 +35,7 @@ export default function FreeChapterPage() {
 
           {/* Pitch + form */}
           <div>
-            <p className="eyebrow mb-3">Free Chapter</p>
+            <p className="eyebrow mb-3">Two Free PDFs</p>
             <h1 className="text-balance font-display text-4xl font-semibold leading-tight sm:text-5xl">
               Read Chapter One.{" "}
               <span className="italic text-accent">Decide for yourself.</span>
@@ -43,7 +43,7 @@ export default function FreeChapterPage() {
             <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-fg-muted">
               By sixteen I was drowning in anger, drugs, and violence. This is
               where the story starts — and it doesn&rsquo;t end where everyone
-              expected it to. Enter your email and Chapter One is yours, free.
+              expected it to. Enter your email and two PDFs are yours, free: Chapter One, plus The Cracks Don&rsquo;t Define You, a 3-part reflection with journaling prompts.
             </p>
 
             <ul className="mt-6 space-y-2.5">

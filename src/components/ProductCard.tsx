@@ -59,7 +59,7 @@ export function ProductCard({ product }: { product: Product }) {
             />
           ) : product.externalUrl ? (
             <ButtonLink href={product.externalUrl} variant="outline" external>
-              View / Buy →
+              {(product.priceUsd ?? 0) > 0 ? "View / Buy →" : "Get It Free →"}
             </ButtonLink>
           ) : (
             <p className="text-sm text-fg-subtle">
