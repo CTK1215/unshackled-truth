@@ -30,12 +30,12 @@ const byDateDesc = <T extends { date: string }>(a: T, b: T) =>
 /* ----------------------------- Blog posts ------------------------------ */
 
 export async function getPosts(): Promise<Post[]> {
+  // Sample content is a local-development convenience only. Once the CMS is
+  // connected, the site shows real content or an honest empty state — never
+  // invented posts, letters, or stories.
   if (isCmsConfigured()) {
     const { fetchPosts } = await import("./sanity/queries");
-    const posts = await fetchPosts();
-    // Until the first real post is published, keep showing the samples so the
-    // site never looks empty.
-    if (posts.length > 0) return posts;
+    return fetchPosts();
   }
   return [...samplePosts].sort(byDateDesc);
 }
@@ -56,8 +56,7 @@ export async function getPost(slug: string): Promise<Post | null> {
 export async function getLetters(): Promise<Letter[]> {
   if (isCmsConfigured()) {
     const { fetchLetters } = await import("./sanity/queries");
-    const letters = await fetchLetters();
-    if (letters.length > 0) return letters;
+    return fetchLetters();
   }
   return [...sampleLetters].sort(byDateDesc);
 }
@@ -72,8 +71,7 @@ export async function getLetter(slug: string): Promise<Letter | null> {
 export async function getStories(): Promise<Story[]> {
   if (isCmsConfigured()) {
     const { fetchStories } = await import("./sanity/queries");
-    const stories = await fetchStories();
-    if (stories.length > 0) return stories;
+    return fetchStories();
   }
   return [...sampleStories].sort(byDateDesc);
 }
@@ -88,8 +86,7 @@ export async function getStory(slug: string): Promise<Story | null> {
 export async function getProducts(): Promise<Product[]> {
   if (isCmsConfigured()) {
     const { fetchProducts } = await import("./sanity/queries");
-    const products = await fetchProducts();
-    if (products.length > 0) return products;
+    return fetchProducts();
   }
   return [...sampleProducts].sort(byDateDesc);
 }

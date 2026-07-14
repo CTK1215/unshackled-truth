@@ -33,6 +33,49 @@ export default async function StoriesPage() {
           .
         </p>
 
+        {stories.length === 0 && (
+          <div className="mt-14 rounded-2xl border border-border bg-bg-elev p-8 sm:p-10">
+            <h2 className="font-display text-2xl font-semibold">
+              This page is waiting for its first story. On purpose.
+            </h2>
+            <div className="mt-4 space-y-4 leading-relaxed text-fg-muted">
+              <p>
+                Nothing on this page will ever be invented. Every story
+                published here will be a real one, from a real person in
+                recovery or rebuilding after prison, shared with their
+                permission, named or anonymous as they choose. Until those
+                stories arrive, this page stays honest and stays open.
+              </p>
+              <p>
+                Why it matters: advice is cheap, but proof is priceless.
+                Somebody on their first day clean needs to hear from somebody
+                on their thousandth. Somebody&rsquo;s first night in a cell
+                needs to know a man served twenty-seven years and came home
+                free. Your story could be that proof.
+              </p>
+              <p>
+                If you made it out, of addiction, of prison, of the life,{" "}
+                <Link
+                  href="/share-your-story"
+                  className="text-accent hover:underline"
+                >
+                  share your story
+                </Link>
+                . Written or recorded, polished or raw. In the meantime, my own
+                story is on the{" "}
+                <Link href="/about" className="text-accent hover:underline">
+                  About page
+                </Link>{" "}
+                and in{" "}
+                <Link href="/blog" className="text-accent hover:underline">
+                  the blog
+                </Link>
+                , and I&rsquo;ll go first as many times as it takes.
+              </p>
+            </div>
+          </div>
+        )}
+
         <div className="mt-14 space-y-10">
           {stories.map((story) => (
             <article

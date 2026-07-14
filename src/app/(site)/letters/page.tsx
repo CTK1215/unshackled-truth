@@ -34,6 +34,46 @@ export default async function LettersPage() {
           — your words may help the next person.
         </p>
 
+        {letters.length === 0 && (
+          <div className="mt-14 rounded-2xl border border-border bg-bg-elev p-8 sm:p-10">
+            <h2 className="font-display text-2xl font-semibold">
+              The first letters are still in the mail.
+            </h2>
+            <div className="mt-4 space-y-4 leading-relaxed text-fg-muted">
+              <p>
+                This page will hold real letters from men and women who are
+                still inside, published only with the writer&rsquo;s
+                permission, with names and locations shown only as each writer
+                wishes. Nothing here will ever be made up. A wall can take
+                someone&rsquo;s freedom; it should not erase their voice.
+              </p>
+              <p>
+                Why it matters: I spent twenty-seven years behind that wall,
+                and the world mostly talked about people like me, not with us.
+                These letters are the &ldquo;with us.&rdquo; They tell families
+                what hope looks like from the inside, and they tell the next
+                man in the cell that somebody made the walk before him.
+              </p>
+              <p>
+                If this site or the book reached you inside, or you love
+                someone it could reach,{" "}
+                <Link
+                  href="/write-to-us"
+                  className="text-accent hover:underline"
+                >
+                  here is how to write to us
+                </Link>
+                . Until the letters arrive, the &ldquo;Life Inside&rdquo;
+                posts on{" "}
+                <Link href="/blog" className="text-accent hover:underline">
+                  the blog
+                </Link>{" "}
+                carry that voice, starting with mine.
+              </p>
+            </div>
+          </div>
+        )}
+
         <div className="mt-14 space-y-10">
           {letters.map((letter) => (
             <article
