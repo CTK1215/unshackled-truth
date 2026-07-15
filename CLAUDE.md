@@ -2,10 +2,17 @@
 
 # Unshackled Truth — project notes
 
+**Start here in a new session: read `docs/PROJECT-STATE.md`** — the full
+handoff of business state, standing agreements, infrastructure map, and
+open items. The marketing/content pipeline lives in `tools/marketing/`.
+
 ## Repo conventions
 - NO AI attribution anywhere: never add "Co-Authored-By", "Generated with",
   session links, or similar AI/tool credits to commit messages, PR titles,
   PR bodies, or code comments. The owner has explicitly opted out.
+- NO em dashes in any content or copy, anywhere. Owner's standing rule.
+- Never invent content presented as real (testimonies, letters, stories,
+  reviews). Honest empty states instead.
 
 Personal testimony / author site for a formerly-incarcerated writer: sells his
 book (Amazon + direct Stripe eBook), hosts a blog (life inside, God, the free
