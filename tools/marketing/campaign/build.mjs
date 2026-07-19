@@ -91,12 +91,13 @@ const MOODS = {
     linear-gradient(180deg,#0b0d13 0%,#10131b 60%,#0a0805 100%)`,
 };
 
-function footer(i, isFirst) {
-  const dots = [0, 1, 2, 3].map((k) => `<div class="dot ${k === i ? "on" : ""}"></div>`).join("");
+function footer(i, total) {
+  const isFirst = i === 0;
+  const dots = Array.from({ length: total }, (_, k) => `<div class="dot ${k === i ? "on" : ""}"></div>`).join("");
   return `<div class="footer"><div class="brand">Unshackled Truth Media</div>${isFirst ? `<div class="swipe">SWIPE &rarr;</div>` : `<div class="dots">${dots}</div>`}</div>`;
 }
 
-function slideHtml(s, i) {
+function slideHtml(s, i, total) {
   const first = i === 0;
   const bgTag = (name, heavy = false) =>
     name.startsWith("css-")
@@ -141,11 +142,19 @@ function slideHtml(s, i) {
   } else if (s.type === "split") {
     inner = `<div class="split-wrap">
       <div class="half"><img src="${imgSrc(s.topImg)}"><div class="yeartag">1999</div></div>
-      <div class="half"><img src="${imgSrc(s.bottomImg)}"><div class="yeartag" style="top:auto;bottom:150px;left:auto;right:36px">2026</div></div>
+      <div class="half"><img src="${imgSrc(s.bottomImg)}"><div class="yeartag" style="top:calc(50% + 24px);bottom:auto;left:auto;right:36px">2026</div></div>
       </div><div class="split-line"></div>
       <div class="scrim" style="background:linear-gradient(180deg,transparent 40%, rgba(8,7,5,.9) 100%)"></div>
       <div class="frame" style="z-index:5"></div>
       <div class="split-title"><div class="kicker">${esc(s.kicker)}</div><div class="rule"></div><h1 class="smaller" style="font-size:60px">${esc(s.title)}</h1></div>`;
+  } else if (s.type === "connect") {
+    inner = `<div class="bg" style="${MOODS["css-gold"]}"></div><div class="frame"></div>
+      <div class="content center">
+      <div class="kicker">${esc(s.kicker || "Your turn")}</div><div class="rule" style="margin-left:auto;margin-right:auto"></div>
+      <h1 class="smaller" style="font-size:58px">${esc(s.title)}</h1>
+      <div class="body" style="font-style:normal;font-family:Inter;font-weight:500;font-size:32px">${esc(s.body)}</div>
+      <div class="url-pill">${esc(s.url || "unshackledtruthmedia.com/share-your-story")}</div>
+      <div class="note">${esc(s.note)}</div></div>`;
   } else if (s.type === "cta") {
     const isCover = s.bg.startsWith("cover-") || s.bg === "book-cover.jpg";
     if (isCover) {
@@ -164,12 +173,12 @@ function slideHtml(s, i) {
         <div class="note">${esc(s.note)}</div></div>`;
     }
   }
-  return `<section class="slide" id="s${i}">${inner}${footer(i, first)}</section>`;
+  return `<section class="slide" id="s${i}">${inner}${footer(i, total)}</section>`;
 }
 
 await mkdir(path.join(ROOT, "html"), { recursive: true });
 for (const c of carousels) {
-  const html = `<!doctype html><html><head><meta charset="utf-8"><style>${CSS}</style><title>${c.slug}</title></head><body>${c.slides.map(slideHtml).join("\n")}</body></html>`;
+  const html = `<!doctype html><html><head><meta charset="utf-8"><style>${CSS}</style><title>${c.slug}</title></head><body>${c.slides.map((s, i) => slideHtml(s, i, c.slides.length)).join("\n")}</body></html>`;
   await writeFile(path.join(ROOT, "html", `${c.slug}.html`), html);
   console.log("built", c.slug);
 }
