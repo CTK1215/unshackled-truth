@@ -16,7 +16,8 @@ for (const f of files) {
   await mkdir(dir, { recursive: true });
   await page.goto("file://" + path.join(ROOT, "html", f), { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts.ready);
-  for (let i = 0; i < 4; i++) {
+  const n = await page.locator(".slide").count();
+  for (let i = 0; i < n; i++) {
     const el = page.locator(`#s${i}`);
     await el.screenshot({ path: path.join(dir, `${slug}-slide${i + 1}.png`) });
   }
