@@ -84,23 +84,25 @@ I read every single one.
   {
     slug: "w2-d2am-the-day-she-left",
     day: "Tue", slot: "8:00 AM",
-    goal: "Story: abandonment (Ch 7); deep universal connection",
+    goal: "Story: misread abandonment -> understanding (Ch 7, 39)",
     slides: [
-      { type: "hook", bg: "css-night", kicker: "A true story", title: "I was fifteen the day my mother left." },
-      { type: "quote", bg: "css-storm", text: "If your own mother can walk away, what does that say about you?", src: "The Cracks Beneath the Surface, age 15" },
-      { type: "text", bg: "css-night", kicker: "What a kid decides", title: "I didn't have words for it.", body: "So I made it mean something about me. That I was the kind of person people leave." },
-      { type: "text", bg: "css-gold", kicker: "Years later", title: "That lie drove decisions I couldn't explain.", body: "The wound was old. The damage kept showing up current." },
+      { type: "hook", bg: "css-night", kicker: "A true story", title: "I was fifteen when my mother left. For twenty years I was sure she abandoned me." },
+      { type: "text", bg: "css-storm", kicker: "What a kid decides", title: "I made it mean something about me.", body: "That I was the kind of person people leave. I built a whole life on that lie." },
+      { type: "text", bg: "css-night", kicker: "What I couldn't see then", title: "She wasn't leaving me. She was surviving.", body: "She was getting out of a home that was breaking her. I was too young to tell the difference." },
+      { type: "quote", bg: "css-gold", text: "Healing has a way of softening judgment. It doesn't erase what happened, but it changes how you carry it.", src: "The Cracks Beneath the Surface" },
       CLOSE_SHARE,
     ],
-    caption: `I was fifteen the day she left. I did not cry the way you would expect. I went cold, because cold felt safer than the question underneath it: if your own mother can walk away, what does that say about you?
+    caption: `I was fifteen the day she left, and I got it completely wrong.
 
-I had no words for it back then, so I answered it the only way a kid can. I decided I was the kind of person people leave, and I spent the next twenty years proving myself right.
+I decided she abandoned me, and I carried that for twenty years. I made it mean something about me: that I was the kind of person people leave. I built a whole life on that one lie, and it drove decisions I could never explain.
 
-Here is what took me decades to learn: the wound was old, but it kept driving current decisions I could not explain. Naming it is where it started losing its grip.
+What I could not see at fifteen is that she was not leaving me. She was surviving. She was getting out of a home that was breaking her, and I was too young to tell the difference between being left and being spared.
 
-If you came out the other side of something like this, somebody still in it needs to hear you. Share your story at the link. And if you love someone inside, they can write to us.
+I understand her now. Healing has a way of softening judgment. It does not erase what happened, but it changes how you carry it, and I do not carry that as a weapon anymore.
 
-#Abandonment #Childhood #Testimony #ChristianRecovery #HealingJourney #MotherWound #SecondChances #YouAreNotAlone #FaithOverFear #Recovery`,
+Maybe you have been reading an old story wrong too. If you have made it to the understanding on the other side, somebody still stuck in the misreading needs to hear you. Share your story at the link. And if you love someone inside, they can write to us.
+
+#Forgiveness #Childhood #Testimony #ChristianRecovery #HealingJourney #Understanding #SecondChances #YouAreNotAlone #FaithOverFear #Recovery`,
   },
   {
     slug: "w2-d2pm-old-wound-current-trigger",
